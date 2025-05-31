@@ -566,9 +566,9 @@ img {
   color: var(--first-color);
 }
 
-div#education {
+/*div#education {
     width: 700px;
-}
+}*/
 
 .qualification__icon {
   font-size: 1.8rem;
@@ -631,24 +631,17 @@ div#education {
   grid-template-columns: repeat(2, 1fr);
 }
 
-/*.services__content {
-  position: relative;
-  background-color: var(--container-color);
-  padding: 3.5rem 0.5rem 1.25rem 1.5rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 5px 5px rgba(15, 186, 6, 0.15);
-}*/
-
 .services__content {
   position: relative;
   background-color: var(--container-color);
-  padding: 2rem 1rem;
+  
   border-radius: 0.25rem;
   box-shadow: 0 5px 5px rgba(15, 186, 6, 0.15);
   width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
   box-sizing: border-box;
 }
-
 
 .services__button {
   cursor: pointer;
@@ -1196,8 +1189,4 @@ div#education {
 .no-line-break {
   white-space: nowrap;
 }
-@media screen and (max-width: 480px) {
-  .services__content {
-    padding: 1.5rem 0.75rem;
-  }
-}
+
