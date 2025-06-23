@@ -4,7 +4,7 @@ Welcome to my personal portfolio repository! This project showcases my professio
 
 ## 🌐 Live Demo
 
-Check out the live version here: [your-portfolio-link.com](https://asifbk.github.io.com)
+Check out the live version here: https://asifbk.github.io/
 
 ## 🚀 Features
 
