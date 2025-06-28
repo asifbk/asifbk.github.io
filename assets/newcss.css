@@ -1187,6 +1187,24 @@ img {
   white-space: nowrap;
 }
 
+/* Add this to your newcss.css file */
+.qualification__section.service__section {
+  display: grid;
+  grid-template-columns: 0.6fr;
+  justify-content: center;
+}
 
+/* Update the existing qualification__container styles */
+.qualification__container.container.grid.services__container {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Ensure both sections have equal width */
+.qualification__sections {
+  width: 100%;
+}
   
   
