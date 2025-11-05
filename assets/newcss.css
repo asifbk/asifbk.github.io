@@ -1206,16 +1206,55 @@ img {
 .qualification__sections {
   width: 100%;
 }
-/* --- FIX timeline line overflow --- */
-.qualification__data:not(:last-child) .qualification__line {
-  height: calc(100% - 1.5rem); /* prevent long blue line overflow */
+
+/* === FINAL STABLE TIMELINE FIX (Education & Employment) === */
+.qualification__data {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: flex-start;
 }
 
+/* keep dots centered */
+.qualification__rounder {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-color: var(--first-color);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* create clean vertical connector */
+.qualification__line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background-color: var(--first-color);
+  top: 22px; /* start right below the top dot */
+  bottom: -22px; /* stop before next one */
+  opacity: 0.8;
+}
+
+/* hide line for last item */
 .qualification__data:last-child .qualification__line {
-  display: none; /* hide the extra line after last element */
+  display: none;
 }
 
+/* tighten spacing */
+.qualification__sections .qualification__data {
+  margin-bottom: 2rem;
+}
 
+/* responsive cleanup for small screens */
+@media screen and (max-width: 600px) {
+  .qualification__data {
+    grid-template-columns: 1fr;
+  }
+  .qualification__line {
+    left: 10px;
+    transform: none;
+  }
+}
 
-  
-  
