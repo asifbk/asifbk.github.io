@@ -1162,32 +1162,47 @@ img {
   white-space: nowrap;
 }
 
-/* Qualification section styles */
+/*==========================================================================
+   MOBILE FIX FOR QUALIFICATION/TIMELINE SECTION
+   This removes the card box and makes timeline full width on mobile
+==========================================================================*/
+
+/* Override the services__content styling when used in qualification section */
+.qualification__content.services__content {
+  box-shadow: none;
+  background-color: transparent;
+  padding: 1rem;
+  border-radius: 0;
+}
+
+/* Qualification section base styles */
 .qualification__section.service__section {
-  display: grid;
-  grid-template-columns: 0.6fr;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .qualification__container.container.grid.services__container {
+  display: block;
   width: 100%;
-  max-width: 768px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .qualification__sections {
   width: 100%;
 }
 
-/* === TIMELINE FIX === */
+/* Timeline data grid */
 .qualification__data {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
-  align-items: flex-start;
+  column-gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
+/* Timeline dots */
 .qualification__rounder {
   display: inline-block;
   width: 13px;
@@ -1197,125 +1212,136 @@ img {
   z-index: 2;
 }
 
+/* Timeline line */
 .qualification__line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: block;
   width: 2px;
+  height: 100%;
   background-color: var(--first-color);
-  top: 22px;
-  bottom: -22px;
-  opacity: 0.8;
+  transform: translate(5px, -7px);
 }
 
-.qualification__data:last-child .qualification__line {
-  display: none;
-}
-
-.qualification__sections .qualification__data {
-  margin-bottom: 2rem;
-}
-
-/*============================================================
-   MOBILE TIMELINE FIX - THIS IS THE KEY FIX FOR YOUR ISSUE
-============================================================*/
-
-/* Mobile devices - make timeline full width */
+/*==========================================================================
+   MOBILE SPECIFIC FIXES (max-width: 767px)
+==========================================================================*/
 @media screen and (max-width: 767px) {
-  /* Make qualification container full width */
-  .qualification__container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 1rem !important;
+  /* Remove card styling from qualification content on mobile */
+  .qualification__content.services__content {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    padding: 0.5rem !important;
+    border-radius: 0 !important;
+    position: relative !important;
   }
 
-  /* Make sections full width */
+  /* Full width qualification section */
+  .qualification__section.service__section {
+    width: 100% !important;
+    padding: 0 0.5rem !important;
+  }
+
+  /* Full width container */
+  .qualification__container.container.grid.services__container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  /* Full width sections */
   .qualification__sections {
     width: 100% !important;
   }
 
-  .qualification__section {
-    width: 100% !important;
-    max-width: 100% !important;
-    grid-template-columns: 1fr !important;
-    padding: 0 !important;
+  /* Tabs styling */
+  .qualification__tabs {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
   }
 
-  .qualification__section.service__section {
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
+  .qualification__button {
+    font-size: 0.95rem;
   }
 
-  /* Timeline data - keep 3 column structure but full width */
+  .qualification__icon {
+    font-size: 1.4rem;
+  }
+
+  /* Timeline data - KEEP 3 columns for proper alternating layout */
   .qualification__data {
-    display: grid;
-    grid-template-columns: 1fr max-content 1fr;
-    column-gap: 0.75rem;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr max-content 1fr !important;
+    column-gap: 0.5rem !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem;
   }
 
-  /* Left side content - align right */
+  /* Left content - align to the right (toward timeline) */
   .qualification__data > div:first-child {
     text-align: right;
-    padding-right: 0.5rem;
+    padding-right: 0.25rem;
   }
 
-  /* Right side content - align left */
-  .qualification__data > div:last-child {
+  /* Right content - align to the left (toward timeline) */
+  .qualification__data > div:nth-child(3) {
     text-align: left;
-    padding-left: 0.5rem;
+    padding-left: 0.25rem;
   }
 
-  /* Adjust font sizes for mobile */
+  /* Middle column with dot and line */
+  .qualification__data > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Typography adjustments */
   .qualification__title {
     font-size: 0.85rem;
     line-height: 1.3;
+    word-wrap: break-word;
   }
 
   .qualification__subtitle {
     font-size: 0.75rem;
     line-height: 1.3;
+    word-wrap: break-word;
   }
 
   .qualification__calender {
     font-size: 0.7rem;
   }
 
-  /* Timeline dots and lines */
+  /* Smaller dots on mobile */
   .qualification__rounder {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
   }
 
+  /* Line adjustments */
   .qualification__line {
     width: 2px;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: translate(0, -5px);
   }
 
-  /* Tabs adjustment */
-  .qualification__tabs {
-    margin-top: 2rem;
-    gap: 1rem;
-  }
-
-  .qualification__button {
-    font-size: 0.9rem;
-  }
-
-  .qualification__icon {
-    font-size: 1.3rem;
+  /* View More button adjustments */
+  .qualification__data .services__button {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.3rem;
   }
 }
 
-/* Very small devices */
+/*==========================================================================
+   VERY SMALL DEVICES (max-width: 400px)
+==========================================================================*/
 @media screen and (max-width: 400px) {
-  .qualification__container {
-    padding: 0 0.5rem !important;
+  .qualification__section.service__section {
+    padding: 0 0.25rem !important;
   }
 
   .qualification__data {
-    column-gap: 0.5rem;
+    column-gap: 0.25rem !important;
   }
 
   .qualification__title {
@@ -1331,26 +1357,38 @@ img {
   }
 
   .qualification__rounder {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .qualification__tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 }
 
-/* Extra small devices */
+/*==========================================================================
+   EXTRA SMALL DEVICES (max-width: 350px)
+==========================================================================*/
 @media screen and (max-width: 350px) {
   .qualification__data {
-    column-gap: 0.25rem;
+    column-gap: 0.15rem !important;
   }
 
   .qualification__title {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .qualification__subtitle {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
 
   .qualification__calender {
+    font-size: 0.5rem;
+  }
+
+  .qualification__data .services__button {
     font-size: 0.55rem;
   }
 }
