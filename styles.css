@@ -13,6 +13,11 @@
   /* Cache buster: v2.0 */
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Dark mode variables */
 html.dark-mode {
   --bg-color: #1a1a2e;
@@ -170,6 +175,7 @@ header {
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
+  padding-left: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -221,6 +227,12 @@ h2 {
   display: flex;
   align-items: center;
   gap: 0.7em;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+h2:hover {
+  transform: translateX(4px);
+  color: var(--accent-color);
 }
 
 h2::before {
@@ -521,6 +533,41 @@ section:nth-child(8) { animation-delay: 1.05s; }
   margin: 0.25rem 0 0.75rem;
 }
 
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-time) ease;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  z-index: 999;
+}
+
+.back-to-top.show {
+  display: flex;
+}
+
+.back-to-top:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px);
+}
+
 /* Footer */
 footer {
   margin-top: 2.5rem;
@@ -667,12 +714,14 @@ strong {
 .social-icons a {
   font-size: clamp(3rem, 3vw, 2.6rem);  /* larger icons */
   transition: transform var(--transition-time) ease,
-              opacity var(--transition-time) ease;
+              opacity var(--transition-time) ease,
+              filter var(--transition-time) ease;
 }
 
 .social-icons a:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1);
   opacity: 0.85;
+  filter: drop-shadow(0 4px 8px rgba(74, 116, 185, 0.3));
 }
 
 
@@ -722,7 +771,7 @@ strong {
 
 .edu-school {
   font-weight: 600;
-  font-size: clamp(2rem, 2.4vw, 2.3rem);
+  font-size: clamp(1.8rem, 2.4vw, 1.8rem);
   margin: 0 0 0.05rem 0;
 }
 
@@ -759,6 +808,15 @@ strong {
   color: var(--accent-color);
   cursor: pointer;
   text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.edu-toggle::after {
+  content: '▼';
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
 }
 
 .edu-toggle:hover {
@@ -766,10 +824,25 @@ strong {
 }
 
 .edu-details {
-  display: none; /* shown via JS */
+  max-height: 0;
+  overflow: hidden;
+  list-style: disc inside;
   margin: 0.35rem 0 0.2rem;
   padding-left: 1.25rem;
   font-size: clamp(0.9rem, 1.3vw, 1rem);
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.edu-details.is-open {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.edu-toggle.is-open::after {
+  transform: rotate(180deg);
 }
 
 /* Experience timeline: one thick vertical line + dots */
@@ -844,11 +917,11 @@ strong {
 
 .exp-title {
   font-weight: 600;
-  font-size: clamp(2rem, 3vw, 2.3rem);
+  font-size: clamp(1.5rem, 3vw, 1.5rem);
 }
 
 .exp-company {
-  font-size: clamp(1.5rem, 2.4vw, 1.8rem);
+  font-size: clamp(1.5rem, 2.4vw, 1.5rem);
   color: var(--text-secondary);
 }
 
@@ -886,10 +959,25 @@ strong {
 
 /* Hidden bullet list; shown when toggled in JS */
 .exp-details {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
+  list-style: disc inside;
   margin: 0.35rem 0 0.2rem;
   padding-left: 1.25rem;
   font-size: clamp(0.9rem, 1.1vw, 1rem);
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.exp-details.is-open {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.exp-toggle.is-open::after {
+  transform: rotate(180deg);
 }
 
 /* Publications slider controls */

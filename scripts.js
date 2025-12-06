@@ -438,6 +438,27 @@ function initiate3DRobot() {
   });
 }
 
+// Back to Top Button functionality
+function initializeBackToTop() {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize theme toggle
@@ -458,7 +479,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize scroll animations
   initializeScrollAnimations();
 
-  // Education details toggles
+  // Initialize back to top button
+  initializeBackToTop();
+
+  // Education details toggles with animation
   const eduToggles = document.querySelectorAll('.edu-toggle');
   eduToggles.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -466,8 +490,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const list = document.getElementById(targetId);
       if (!list) return;
 
-      const isVisible = list.style.display === 'block';
-      list.style.display = isVisible ? 'none' : 'block';
+      const isOpen = list.classList.contains('is-open');
+      if (isOpen) {
+        list.classList.remove('is-open');
+        btn.classList.remove('is-open');
+      } else {
+        list.classList.add('is-open');
+        btn.classList.add('is-open');
+      }
     });
   });
 
@@ -544,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  // Experience details toggles
+  // Experience details toggles with animation
   const expToggles = document.querySelectorAll('.exp-toggle');
   expToggles.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -552,15 +582,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const list = document.getElementById(targetId);
       if (!list) return;
 
-      const isVisible = list.style.display === 'block';
-      list.style.display = isVisible ? 'none' : 'block';
+      const isOpen = list.classList.contains('is-open');
+      if (isOpen) {
+        list.classList.remove('is-open');
+        btn.classList.remove('is-open');
+      } else {
+        list.classList.add('is-open');
+        btn.classList.add('is-open');
+      }
     });
   });
 
   // Initialize certifications slider (existing HTML structure)
-  const certTrack = document.getElementById('cert-track');
-  const certPrev = document.getElementById('cert-prev');
-  const certNext = document.getElementById('cert-next');
+  const certTrack = document.getElementById('certifications-track');
+  const certPrev = document.getElementById('certifications-prev');
+  const certNext = document.getElementById('certifications-next');
   if (certTrack && certPrev && certNext) {
     // cert cards are already in DOM; use maxPerPage 4 (will clamp by viewport)
     const certSlider = new Slider({ track: certTrack, prevBtn: certPrev, nextBtn: certNext, maxPerPage: 4, moveByPage: false });
