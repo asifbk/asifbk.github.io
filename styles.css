@@ -685,6 +685,14 @@ strong {
     justify-content: center;
   }
 
+  /* Responsive publication thumbnails */
+  .pub-thumbnail {
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  }
+
   /* Disable right-moving hover animations on mobile */
   .publication-item:hover,
   .award-item:hover,
