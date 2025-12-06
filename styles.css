@@ -189,8 +189,8 @@ header {
 }
 
 .header-image img {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--border-color);
@@ -555,6 +555,7 @@ p {
   margin: 0.5rem 0 0.75rem;
   font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   line-height: 1.8; 
+  text-align: justify;
 }
 
 strong {
@@ -1230,4 +1231,128 @@ strong {
   .about-text {
     min-height: auto;
   }
+}
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.skills-group {
+  background-color: #f6f6ff;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-family: inherit;           /* use site font */
+}
+
+/* Title button */
+.skills-toggle {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0 0 0.3rem 0;
+  font: inherit;                  /* inherit font family + size */
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Optional caret icon using ::after */
+.skills-toggle::after {
+  content: "▾";
+  font-size: 0.9em;
+  transition: transform 0.25s ease;
+}
+.skills-toggle:hover {
+  text-decoration: underline;
+}
+
+.skills-list {
+  max-height: 0;
+  overflow: hidden;
+  list-style: disc inside;
+  margin: 0;
+  padding-left: 0;
+  font-size: 0.95rem;
+  transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.skills-list.is-open {
+  max-height: 300px;   /* big enough for your longest list */
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Rotate caret when open */
+.skills-toggle.is-open::after {
+  transform: rotate(180deg);
+}
+/* Fun certificate modal overlay */
+.cert-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal.show {
+  display: flex;
+}
+
+/* Modal content box */
+.cert-modal-content {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: modalPop 0.3s ease;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Close button */
+.cert-modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+  color: #666;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cert-modal-close:hover {
+  color: #000;
+}
+
+/* Modal text */
+.cert-modal-text {
+  font-size: 1.15rem;
+  margin: 0;
+  color: #333;
 }

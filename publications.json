@@ -1,53 +1,69 @@
 {
   "publications": [
     {
-      "title": "[Paper Title 1]",
+      "title": "A WSN (Wireless Sensor Network) Approach for Controlling the Actuator Wirelessly through Database Interaction",
       "authors": [
-        "Author 1*",
-        "Author 2*",
-        "Author 3",
-        "Author 4",
-        "Author 5",
-        "Author 6",
-        "Author 7",
-        "Author 8",
-        "Author 9",
-        "Author 10",
-        "Author 11†",
-        "Author 12†"
+        "<span class='highlight-name'>Md Asif Bin Karim</span>",
+        "Md. Mukidur Rahman",
+        "Saquib Shahriar",
+        "Md. Manirul Islam"
       ],
-      "venue": "Preprint (2025)",
-      "thumbnail": "images/thumbs/1.jpg",
+      "venue": "International Conference on I-SMAC (IoT in Social, Mobile, Analytics and Cloud)",
+      "year": 2023,
+      "thumbnail": "images/pub 1.gif",
       "selected": 1,
-      "award": "",
       "links": {
-        "pdf": "#",
-        "code": "#",
-        "project": "#"
+        "Link": "https://ieeexplore.ieee.org/abstract/document/10290380"
       }
     },
     {
-      "title": "[Paper Title 2]",
+      "title": "Integration of Battery & Ultracapacitor for Low Weight Electric Vehicle for Bangladesh",
       "authors": [
-        "Author 1*",
-        "Author 2*",
-        "Author 3",
-        "Author 4",
-        "Author 5",
-        "Author 6",
-        "Author 7",
-        "Author 8",
-        "Author 9",
-        "Author 10",
-        "Author 11"
+        "Md. Arman Arefin",
+        "Avijit Mallik",
+        "Mhia Md. Zaglul Shahadat",
+        "Abid Ahsan",
+        "<span class='highlight-name'>Md Asif Bin Karim</span>",
+        "Md. Firoz Uddin"
       ],
-      "venue": "Preprint (2025)",
-      "thumbnail": "images/thumbs/2.jpg",
+      "venue": "International Conference on Circuits and Systems in Digital Enterprise Technology",
+      "year": 2018,
+      "thumbnail": "images/pub 2.gif",
       "selected": 1,
-      "award": "",
       "links": {
-        "pdf": "#"
+        "pdf": "https://ieeexplore.ieee.org/document/8821234"
       }
+    },
+    {
+      "title": "Current and future prospects of geothermal energy in Bangladesh",
+      "authors": [
+        "Avijit Mallik",
+        "Md. Arman Arefin",
+        "<span class='highlight-name'>Md Asif Bin Karim</span>",
+        "Mohammad Rahat Rahman"
+      ],
+      "venue": "International Conference on Computer, Communication, Chemical, Material and Electronic Engineering",
+      "year": 2019,
+      "thumbnail": "images/pub 3.gif",
+      "selected": 1,
+      "links": {
+        "pdf": "https://ieeexplore.ieee.org/document/9036550"
+      }
+    },
+    {
+      "title": "Development of LOCAL-IP based Environmental Condition Monitoring using Wireless Sensor Network",
+      "authors": [
+        "Avijit Mallik",
+        "Shaik A. Hossain",
+        "<span class='highlight-name'>Md Asif Bin Karim</span>",
+        "Shahajada Mahmudul Hasan"
+      ],
+      "venue": " International Journal of Sensors Wireless Communications and Control",
+      "year": 2019,
+      "thumbnail": "images/pub 4.jpg",
+      "selected": 1,
+      "links": {
+        "pdf": "https://doi.org/10.2174/2210327909666190208161832"}
     }
   ]
 }

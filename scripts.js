@@ -496,6 +496,53 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = mailtoUrl;
     });
   }
+  // Skills collapsible lists with animation
+  const skillToggles = document.querySelectorAll('.skills-toggle');
+  skillToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const list = document.getElementById(targetId);
+      if (!list) return;
+
+      const isOpen = list.classList.contains('is-open');
+      if (isOpen) {
+        list.classList.remove('is-open');
+        btn.classList.remove('is-open');
+      } else {
+        list.classList.add('is-open');
+        btn.classList.add('is-open');
+      }
+    });
+  });
+      // Certificate "View Certificate" fun popup
+  const certLinks = document.querySelectorAll('.cert-link');
+  const certModal = document.getElementById('cert-modal');
+  const certModalClose = document.getElementById('cert-modal-close');
+
+  certLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault(); // Don't navigate
+      if (certModal) certModal.classList.add('show');
+    });
+  });
+
+  // Close modal when X is clicked
+  if (certModalClose && certModal) {
+    certModalClose.addEventListener('click', () => {
+      certModal.classList.remove('show');
+    });
+  }
+
+  // Close modal when clicking outside
+  if (certModal) {
+    certModal.addEventListener('click', (e) => {
+      if (e.target === certModal) {
+        certModal.classList.remove('show');
+      }
+    });
+  }
+
+
 
   // Experience details toggles
   const expToggles = document.querySelectorAll('.exp-toggle');
