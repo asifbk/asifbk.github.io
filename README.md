@@ -1,36 +1,42 @@
-# 💼 Personal Portfolio
+# Minimal Academic Website Template
 
-Welcome to my personal portfolio repository! This project showcases my professional background, skills, and selected works. It is designed to highlight my capabilities through an interactive and responsive web experience.
+A clean, minimal academic website template, designed for researchers and PhD students. The design and source code are from [Yuhui Zhang](https://cs.stanford.edu/~yuhuiz/).
 
-## 🌐 Live Demo
+![Screenshot](images/demo.jpg)
 
-Check out the live version here: https://asifbk.github.io/
+## Features
 
-## 🚀 Features
+- Minimalist, academic-focused design
+- Responsive layout
+- Easy to customize
+- SEO-friendly meta tags
+- Publication showcase support
 
-- Responsive design for mobile, tablet, and desktop
-- Smooth scroll navigation
-- Interactive project showcases
-- Contact form integration
-- Downloadable resume/CV
-- Dark/light mode toggle (if applicable)
+## Quick Start
 
-## 🛠️ Tech Stack
+0. Clone this repository and `cd` into the directory
+1. Run `python -m http.server` and visit `http://localhost:8000`
+2. Replace placeholders marked with `[brackets]` in `index.html`
+3. Update profile photo in `images/profile.jpeg`
+4. Modify `publications.json` for your papers
+5. Customize sections as needed (About, Research, News, etc.)
 
-- **Frontend**: HTML5, CSS3, JavaScript (or React/Vue/Next.js depending on what you used)
-- **Styling**: Tailwind CSS / Bootstrap / SCSS
-- **Deployment**: GitHub Pages / Vercel / Netlify
+## File Structure
 
-## 📁 Folder Structure
+```
+.
+├── index.html          # Main webpage
+├── styles.css          # CSS styling
+├── scripts.js          # JavaScript for dynamic content
+├── publications.json   # Publication data
+└── images/            # Image assets
+    └── profile.jpg
+```
 
-```bash
-portfolio/
-├── public/              # Static assets
-├── src/                 # Source code
-│   ├── components/      # Reusable UI components
-│   ├── pages/           # Page components (Home, Projects, Contact)
-│   ├── assets/          # Images, fonts, etc.
-│   └── styles/          # CSS/SCSS files
-├── .gitignore
-├── README.md
-└── package.json
+## License
+
+MIT License
+
+---
+
+For a live example, visit [Yuhui Zhang's website](https://cs.stanford.edu/~yuhuiz/).

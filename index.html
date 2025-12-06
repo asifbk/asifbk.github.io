@@ -1,867 +1,579 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Mkarim – Researcher</title>
+  <link rel="stylesheet" href="styles.css?v=2.0">
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="assets/newcss.css" />
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
+<body>
 
-<body oncontextmenu="return false">
-  <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#" class="nav__logo">MD ASIF BIN KARIM</a>
-      <div class="nav__menu" id="nav-menu">
-        <ul class="nav__list grid">
-          <li class="nav__item">
-            <a href="#home" class="nav__link active-link">
-              <i class="uil uil-estate nav__icon"></i>Home
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#about" class="nav__link">
-              <i class="uil uil-user nav__icon"></i>About
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#skills" class="nav__link">
-              <i class="uil uil-file-alt nav__icon"></i>Skills
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#qualification" class="nav__link">
-              <i class="uil uil-briefcase-alt nav__icon"></i>Educations & Employments
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#portfolio" class="nav__link">
-              <i class="uil uil-scenery nav__icon"></i>Publications
-            </a>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">
-              <i class="uil uil-message nav__icon"></i>Contact-Me
-            </a>
-          </li>
-        </ul>
-        <i class="uil uil-times nav__close" id="nav-close"></i>
-      </div>
-      <div class="nav__btns">
-        <!-- Theme change button -->
-        <i class="uil uil-moon change-theme" id="theme-button"></i>
+  <!-- TOP NAVIGATION BAR -->
+  <nav>
+    <div id="cube-container" style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;"></div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#news">Skills</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#awards">Awards & Certifications</a></li>
+      <li><a href="#experience">Work Experiences</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+      <li><a href="https://drive.google.com/file/d/12lGvh1psBkezkEesaNnWCDKDHsP069kO/view?usp=sharing">Download CV</a></li>
+      <li><button id="theme-toggle" aria-label="Toggle dark mode"><i class="fa fa-moon-o" aria-hidden="true"></i></button></li>
+    </ul>
+  </nav>
 
-        <div class="nav__toggle" id="nav-toggle">
-          <i class="uil uil-apps"></i>
-        </div>
-        <div class="about__buttons">
-          <a download="" href="assets\MyCV.pdf" class="button button--flex">
-            Download CV<i class="fas fa-download button__icon"></i>
-          </a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- main-->
+  <!-- HEADER WITH NAME + PHOTO -->
+    <header>
+    <div class="header-image">
+        <!-- Replace src with your profile image -->
+        <img src="images/profile.jpeg" alt="Profile picture">
+    </div>
 
-  <main class="main">
-    <!--========================= Home =====================-->
+    <div class="header-content">
+        <h1>
+        <span class="typewriter">Md Asif Bin Karim</span>
+        </h1>
+        <p>Short tagline about your research and interests.</p>
+    </div>
+    </header>
 
-    <section class="home section" id="home">
-      <div class="home__container container grid">
-        <div class="home__content grid">
-          <div class="home__social">
-            <a href="https://www.linkedin.com/in/md-asif-bin-karim-480b91379/" target="_blank" class="home__social-icon">
-              <i class="uil uil-linkedin-alt home__icon"></i>
-            </a>
+  <main>
+    <section id="social">
+  <div class="social-icons">
+    <a class="social-linkedin" href="https://www.linkedin.com/in/md-asif-bin-karim-480b91379/" target="_blank" aria-label="LinkedIn">
+      <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+    </a>
+    <a class="social-researchgate" href="https://www.researchgate.net/profile/Asif-Bin-Karim?ev=hdr_xprf" target="_blank" aria-label="ResearchGate">
+      <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+    </a>
+    <a class="social-gscholar" href="https://scholar.google.com/citations?user=vOcYv8AAAAAJ&hl=en&authuser=1" target="_blank" aria-label="Google Scholar">
+      <i class="fa fa-google" aria-hidden="true"></i>
+    </a>
+    <a class="social-orcid" href="https://orcid.org/my-orcid?orcid=0000-0002-8187-963X" target="_blank" aria-label="ORCID">
+      <i class="fa fa-id-card" aria-hidden="true"></i>
+    </a>
+    <a class="social-discord" href="https://discord.com/users/mdasifbinkarim" target="_blank" aria-label="Discord">
+      <i class="fa fa-comments" aria-hidden="true"></i>
+    </a>
+    <a class="social-mail" href="mailto:mdasifbinkarim@gmail.com" aria-label="Email">
+      <i class="fa fa-envelope" aria-hidden="true"></i>
+    </a>
+    <a class="social-github" href="https://github.com/asifbk" target="_blank" aria-label="GitHub">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  </div>
+</section>
 
-            <a href="https://github.com/asifbk" target="_blank" class="home__social-icon">
-              <i class="uil uil-github-alt home__icon"></i>
-            </a>
-
-           <a href="https://orcid.org/0000-0002-8187-963X" target="_blank" class="home__social-icon" title="ORCID Profile">
-              <i class="fa-brands fa-orcid home__icon"></i>
-          </a>
-
-          </div>
-          <div class="home__img">
-            <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink">
-              <mask id="mask0" mask-type="alpha">
-                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                      130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                      97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                      0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-              </mask>
-              <g mask="url(#mask0)">
-                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                      165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                      129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                <image class="home__blob-img" x="-79" y="-10" xlink:href="assets/img/Pro.jpeg" />
-              </g>
-            </svg>
-          </div>
-          <div class="home__data">
-            <h2 class="home__title">Hi, I'm Asif</h2>
-            <h1 class="home__subtitle">
-              🎓Master's in Computer Science.
-            </h1>
-            <p class="home__description">
-              <strong><a href="https://ualr.edu/" target="_blank" rel="noopener noreferrer">
-                  🏫 University of Arkansas at Little Rock</a></strong>, AR 72204,USA
-
+    <!-- ABOUT -->
+            <section id="about">
+        <h2>About</h2>
+        
+        <div class="about-content">
+            <!-- Text on LEFT side -->
+            <div class="about-text">
+            <p>
+                I am currently pivoting my research focus toward Virtual Reality (VR) and Extended Reality (XR) technologies, aiming to explore their transformative potential across industries such as immersive learning, digital twin simulations, and remote collaboration.
+                My upcoming research will particularly investigate how user interaction and spatial awareness in immersive environments influence behavior, decision-making, and usability — drawing from human-computer interaction, cognitive psychology, and systems design.
             </p>
-            <a href="#contact" class="button button--flex">
-              Contact me<i class="uil uil-message button__icon"></i>
-            </a>
-          </div>
+            </div>
+            
+            <!-- Robot on RIGHT side -->
+            <div id="robot-container"></div>
+        </div>
+        </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+    <h2>Education</h2>
+
+    <!-- UALR -->
+    <div class="edu-item">
+        <div class="edu-header">
+        <div class="edu-left">
+            <img src="images/ualr-logo.png" alt="UALR logo" class="edu-logo">
+            <div class="edu-text">
+            <h3 class="edu-school">University of Arkansas at Little Rock</h3>
+            <div class="edu-degree">Master's in Computer Science</div>
+            <div class="edu-meta">
+                <span class="edu-dates">Aug 2023 – Present</span>
+                <span class="edu-separator">·</span>
+                <span class="edu-location">Little Rock, Arkansas, USA</span>
+            </div>
+            </div>
+        </div>
         </div>
 
-        <div class="home__scroll">
-          <a href="#about" class="home__scroll-button button--flex">
-            <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-            <span class="home__scroll-name">Scroll down</span>
-            <i class="uil uil-arrow-down home__scroll-arrow"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!--======================= About========================-->
-
-    <section class="about section" id="about">
-      <h2 class="section__title">About Me</h2>
-      <span class="section__subtitle">
-        <h2><i class="fas fa-vr-cardboard"></i>Research Vision</h2>
-      </span>
-      <div class="about__data">
-        <p class="about__description">
-          I am currently pivoting my research focus toward Virtual Reality (VR) and Extended Reality (XR) technologies,
-          aiming to explore their transformative potential across industries such as immersive learning, digital twin
-          simulations, and remote collaboration. My upcoming research will particularly investigate how user interaction
-          and spatial awareness in immersive environments influence behavior, decision-making, and usability — drawing
-          from human-computer interaction, cognitive psychology, and systems design.
+        <p class="edu-summary">
+        <button class="edu-toggle" type="button" data-target="edu-details-ualr">
+            View key coursework and focus
+        </button>
         </p>
-        <span class="section__subtitle">
-          <h2><i class="fa-solid fa-user"></i> Personal Experiences</h2>
-        </span>
-        <div class="about__data">
-          <p class="about__description">
-            In addition to my academic endeavors, I bring over 5 years of industry experience in technical and
-            managerial roles, primarily in the consumer electronics sector.
-          </p>
-          <div class="about__info">
-            <div>
-              <span class="about__info-title"><a href="https://www.researchgate.net/profile/Asif-Bin-Karim?ev=hdr_xprf"
-                  target="_blank">
-                  <img
-                    src="https://img.shields.io/badge/ResearchGate-Research-green?style=flat-square&logo=researchgate"
-                    alt="ResearchGate" />
-                </a></span>
-              <span class="about__info-name"></span>
-            </div>
+        <ul id="edu-details-ualr" class="edu-details">
+        <li>Research focus: Virtual Reality (VR), Extended Reality (XR), and HCI</li>
+        <li>Advisor: Aryabrata Basu, Ph.D.</li>
+        <li>Relevant coursework: Operating Systems, Computer Architecture, Analysis of Algorithms</li>
+        </ul>
+    </div>
 
-            <div>
-              <span class="about__info-title"><a href="https://scholar.google.com/citations?user=vOcYv8AAAAAJ&hl=en"
-                  target="_blank">
-                  <img
-                    src="https://img.shields.io/badge/Google%20Scholar-Profile-blue?logo=Google-Scholar&style=flat-square"
-                    alt="Google Scholar" />
-                </a></span>
-              <span class="about__info-name">
-              </span>
+    <!-- RUET -->
+    <div class="edu-item">
+        <div class="edu-header">
+        <div class="edu-left">
+            <img src="images/ruet-logo.png" alt="RUET logo" class="edu-logo">
+            <div class="edu-text">
+            <h3 class="edu-school">Rajshahi University of Engineering &amp; Technology</h3>
+            <div class="edu-degree">B.Sc. in Mechatronics Engineering</div>
+            <div class="edu-meta">
+                <span class="edu-dates">Jan 2015 – Sep 2019</span>
+                <span class="edu-separator">·</span>
+                <span class="edu-location">Rajshahi, Bangladesh</span>
             </div>
-
-          
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
+
+        <p class="edu-summary">
+        <button class="edu-toggle" type="button" data-target="edu-details-ruet">
+            View key coursework and focus
+        </button>
+        </p>
+        <ul id="edu-details-ruet" class="edu-details">
+        <li>Research focus: IoT, Embedded Systems, and Wireless Sensor Networks</li>
+        <li>Advisor: Md Manirul Islam MSc</li>
+        <li>Relevant coursework: Microcontroller Programming, Control Systems, Digital Signal Processing</li>
+        </ul>
+    </div>
     </section>
 
-    <!--===================== SKILLS =====================-->
+    <!-- NEWS / NOTABLE SKILLS -->
+    <section id="news">
+      <h2>Notable Skills</h2>
+      <div class="news-container">
+        <ul class="news-list">
+          <li><strong>[MM/YYYY]</strong>: [News Item 1]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 2]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 3]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 4]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 5]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 6]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 7]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 8]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 9]</li>
+          <li><strong>[MM/YYYY]</strong>: [News Item 10]</li>
+        </ul>
+      </div>
 
-    <section class="skills section" id="skills">
-      <h2 class="section__title">Skills</h2>
-      <span class="section__subtitle">My technical & Operational levels</span>
-
-      <div class="skills__container container grid">
-        <div>
-          <!--==================== Skill 1 =================-->
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="fas fa-pencil-ruler skills__icon"></i>
-
-              <div>
-                <h1 class="skills__title">Programming Languages</h1>
-              </div>
-
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">C</h3>
-                </div>
-
-              </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">C#</h3>
-                </div>
-
-              </div>
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">JavaScript</h3>
-                </div>
-
-              </div>
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Python</h3>
-                </div>
-
-
-
-              </div>
-            </div>
-
-            <!--==================== Skill 2 =================-->
-            <div class="skills__content skills__close">
-              <div class="skills__header">
-                <i class="fas fa-code skills__icon"></i>
-
-                <div>
-                  <h1 class="skills__title">Professional Skills</h1>
-                </div>
-
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Lean & Six-Sigma</h3>
-                  </div>
-
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">ISO 9001, ISO 14001, ISO 45001</h3>
-                  </div>
-
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">TQM (Total Quality Management)</h3>
-                  </div>
-
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Process innovation & Renovation</h3>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <!--==================== Skill 3 =================-->
-            <div class="skills__content skills__close">
-              <div class="skills__header">
-                <i class="fas fa-swatchbook skills__icon"></i>
-                <div>
-                  <h1 class="skills__title">Technologies</h1>
-                </div>
-
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Git</h3>
-                  </div>
-
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Oracle</h3>
-                  </div>
-
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">MySQL</h3>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
     </section>
 
-    <!--==================== Qualifications ==================-->
+    <!-- PUBLICATIONS -->
+        <section id="publications">
+    <h2>Publications</h2>
+    <p>Selected publications and research</p>
 
-    <section class="qualification__section service__section" id="qualification">
-      <h2 class="section__title">Qualification</h2>
-      <span class="section__subtitle">My personal journey</span>
+    <!-- Slider controls (arrow buttons) -->
+    <div class="pub-slider-controls">
+        <button class="pub-arrow pub-arrow-left" id="pub-prev" type="button" aria-label="Previous publications">‹</button>
+        <span id="pub-page-indicator"></span>
+        <button class="pub-arrow pub-arrow-right" id="pub-next" type="button" aria-label="Next publications">›</button>
+    </div>
 
-      <div class="qualification__container container grid services__container">
-        <div class="qualification__tabs">
-          <div class="qualification__button button--flex qualification__active" data-target="#education">
-            <i class="uil uil-graduation-cap qualification__icon"></i>
-            Education
-          </div>
-        </div>
-
-        <div class="qualification__sections">
-          <!--====== Qualification Content 1 ======-->
-          <div class="qualification__content qualifiation__active services__content" data-content id="education">
-            <!--====== Qualification 1 ======-->
-
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">MS in Computer & Information Sciences</h3>
-                <span class="qualification__subtitle">University of Arkansas at Little Rock<br>
-                  <br><a href="https://ualr.edu/computer-science/" target="_blank" rel="noopener noreferrer">Department of Computer Science</a></span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i>
-                  2025 -
-                </div>
-                <span class="button button--flex button--small button--link services__button">
-                  View More
-                  <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">
-                      Graduate Research Assistantship :
-                    </h4>
-                    <i class="uil uil-times services__modal-close"></i>
-                    <ul class="services__modal-services grid">
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Research Interest: Virtual Reality(VR),Extended Reality (XR)
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>Scored 0%</p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>blank</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-            </div>
-
-            <!--====== Qualification 2 ======-->
-            <div class="qualification__data">
-              <div></div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-              <div>
-                <h3 class="qualification__title">BS in Mechatronics Engineering</h3>
-                <span class="qualification__subtitle">Rajshahi University of Engineering & Technology <br /> <a
-                    href="https://www.mte.ruet.ac.bd/" target="_blank" rel="noopener noreferrer">Department of
-                    Mechatronics Engineering</a></span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i>
-                  2014- 2019
-                </div>
-                <span class="button button--flex button--small button--link services__button">
-                  View More
-                  <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">
-                      BS:
-                    </h4>
-                    <i class="uil uil-times services__modal-close"></i>
-                    <ul class="services__modal-services grid">
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Research Interest: Cyber Physical System, IoT and Wireless Sensor Networks
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Scored <strong>73.4%</strong> and ranked <strong>8th</strong> in the cohort.
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="qualification__data">
-              <div></div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <!--<span class="qualification__line"></span>-->
-              </div>
-            </div>
-
-          </div>
-
-
-        </div>
-
-
-      <div class="qualification__container container grid services__container">
-        <div class="qualification__tabs">
-          <div class="qualification__button button--flex qualification__active" data-target="#education">
-            <i class="uil uil-briefcase qualification__icon"></i>
-            Employments
-          </div>
-        </div>
-
-        <div class="qualification__sections">
-          <!--====== Prof Qualification Content 1 ======-->
-          <div class="qualification__content qualifiation__active services__content" data-content id="employment">
-            <!--====== Prof Qualification 1 ======-->
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">Team Lead</h3>
-                <span class="qualification__subtitle">Quality Management <br />Walton Digi-Tech Industries
-                  Limited</span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i>
-                  2023 - 2025
-                </div>
-                <span class="button button--flex button--small button--link services__button">
-                  View More
-                  <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">
-                      Activities & Achievements :
-                    </h4>
-                    <i class="uil uil-times services__modal-close"></i>
-                    <ul class="services__modal-services grid">
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Ensured the project organization as per SLA and reduce process variations to improve the Sigma
-                          Score of the
-                          individual process through proper implementation of DMAIC methodology Production Support,
-                          fault analysis,
-                          providing solutions, and introducing new Processes.
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>Was responsible for troubleshooting issues and identifying root causes and implementing
-                          corrective actions to minimize
-                          downtime and prevent recurring problems.</p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>Was responsible for making any Engineering Change to accelerate productivity and efficiency
-                          as well as reducing the
-                          non-conformity rate</p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>Performed SPC & FMEA methods to identify the relative impact of different failures.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-            </div>
-
-            <!--====== Prof Qualification 2 ======-->
-            <div class="qualification__data">
-              <div></div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <span class="qualification__line"></span>
-              </div>
-              <div>
-                <h3 class="qualification__title">Team Lead</h3>
-                <span class="qualification__subtitle">Manufacturing Process Engineering <br /> Walton Digi-Tech
-                  Industries Limited</span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i>
-                  2020- 2023
-                </div>
-                <span class="button button--flex button--small button--link services__button">
-                  View More
-                  <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">
-                      Activities & Achievements :
-                    </h4>
-                    <i class="uil uil-times services__modal-close"></i>
-                    <ul class="services__modal-services grid">
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Implemented and ensured statistical process control (SPC) and Design of Experiments (DOE)
-                          methodologies to monitor and improve process stability and capability (Cp, Cpk).
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Drove Lean Six Sigma projects to streamline workflows, eliminate waste, and optimize resource
-                          utilization.
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__moda-icon"></i>
-                        <p>
-                          Monitored critical process parameters (CPP) and critical quality attributes (CQA) to ensure
-                          product compliance with internal and external specifications.
-                        </p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--====== Prof Qualification 3 ======-->
-            <div class="qualification__data">
-              <div>
-                <h3 class="qualification__title">Production Engineer</h3>
-                <span class="qualification__subtitle">Joint Design Manufacturing (JDM) <br /> Samsung - Fair Electronics
-                  Limited</span>
-                <div class="qualification__calender">
-                  <i class="uil uil-calendar-alt"></i>
-                  2020 - 2020
-                </div>
-                <span class="button button--flex button--small button--link services__button">
-                  View More
-                  <i class="uil uil-arrow-right button__icon"></i>
-                </span>
-                <div class="services__modal">
-                  <div class="services__modal-content">
-                    <h4 class="services__modal-title">Activities:</h4>
-                    <i class="uil uil-times services__modal-close"></i>
-                    <ul class="services__modal-services grid">
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__modal-icon"></i>
-                        <p>
-                          Emphasized reducing process rejection by implementing various Lean tools and Kaizen.
-                        </p>
-                      </li>
-                      <li class="services__modal-service">
-                        <i class="uil uil-check-circle services__modal-icon"></i>
-                        <p>Focused on achieving maximum FTR, UPH, PPMH, and Efficiency, while minimizing OQC lot
-                          rejects.</p>
-                      </li>
-
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <span class="qualification__rounder"></span>
-                <!--<span class="qualification__line"></span>-->
-              </div>
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-
-
-      </div>
-      </div>
+    <div id="publications-container">
+        <!-- filled by scripts.js -->
+    </div>
     </section>
 
-    <!--=================== Portfolio ===================-->
-    <section class="portfolio section" id="portfolio">
-      <h2 class="section__title">Publications</h2>
-      <span class="section__subtitle">Works Over the Years</span>
 
-      <div class="portfolio__container container swiper-container">
-        <div class="swiper-wrapper">
-          <!-- ------------------------portfollio 1-------------------- -->
-          <div class="portfolio__content grid swiper-slide">
-            <img src="assets/img/portfolio5.png" class="portfolio__img" />
+    <!-- AWARDS -->
+        <section id="Awards & Certifications">
+    <h2>Certifications</h2>
+    <p>Selected credentials and courses</p>
 
-            <div class="portfolio__data">
-              <h3 class="portfolio__title">
-                Development of LOCAL-IP based Environmental Condition Monitoring using Wireless Sensor Network
-              </h3>
-              <p class="portfolio__description">
-                In this paper, environmental monitoring system is implemented using a wireless sensor networking (WSN)
-                via a local internet protocol (IP) utilizing Wi-Fi media. For enchanting data, DHT-11 (Temperature and
-                Humidity sensor) and MQ-6 (LPG gas sensor) are being used.</p>
-              <a href="https://www.eurekaselect.com/article/96522"
-                class="button button--flex button--small portfolio__button">
-                DOI
-                <i class="uil uil-external-link-alt button__icon"></i>
-              </a>
+    <div class="cert-slider">
+        <button class="cert-arrow cert-arrow-left" id="cert-prev" type="button">‹</button>
 
+        <div class="cert-viewport">
+        <div class="cert-track" id="cert-track">
+            <!-- Repeat .cert-card up to 10 times -->
+            <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/Best Poster Award_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
             </div>
-          </div>
-          <!-- ------------------------portfollio 2-------------------- -->
-
-          <div class="portfolio__content grid swiper-slide">
-            <img src="assets/img/portfolio1.png" class="portfolio__img" />
-
-            <div class="portfolio__data">
-              <h3 class="portfolio__title">
-                A WSN (Wireless Sensor Network) Approach for Controlling the Actuator Wirelessly through Database
-                Interaction
-              </h3>
-              <p class="portfolio__description">
-                This research study explores the wireless sensor networking, where sensor data is transmitted to a local
-                database via a nearby server. The primary focus of this research study is real-time environment
-                monitoring systems and wireless control and actuation systems. This research study incorporates the DHT
-                11 (Temperature and Humidity) and MQ-6 (LPG Gas) sensors. Selecting an appropriate controller is crucial
-                to attaining desired system attributes like high-speed precision and meeting requirements for precise
-                motion control at high speeds.
-              </p>
-              <a href="https://ieeexplore.ieee.org/document/1029038"
-                class="button button--flex button--small portfolio__button">
-                DOI
-                <i class="uil uil-external-link-alt button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- ------------------------portfollio 3-------------------- -->
-          <div class="portfolio__content grid swiper-slide">
-            <img src="assets/img/portfolio2.png" class="portfolio__img" />
-
-            <div class="portfolio__data">
-              <h3 class="portfolio__title">Integration of Battery & Ultracapacitor for Low Weight Electric Vehicle for
-                Bangladesh</h3>
-              <p class="portfolio__description">
-                This paper portrays the benefits of introducing an ultracapacitor into a battery pack of an urban
-                electric vehicle drive train.
-                Simulations are done taking two basic scenarios into consideration: fresh cells and half-used battery
-                cells.
-                The simulations show that the lower the temperature higher the hybrid system efficiency.
-                Data from real world are considered to conduct this study.
-                Simulations are done considering modified Bangladeshi drive cycle for low weight vehicles.
-                Several issues like volumetric, gravimetric and cost issues of hybridization are present in this paper.
-                By this system the power loss of the system can be reduced by up to 5% to 10%. Finally, hybridization
-                not only increases the efficiency of the energy storage system also increases the power train efficiency
-                and battery lifespan.
-              </p>
-              <a href="https://ieeexplore.ieee.org/document/8821234"
-                class="button button--flex button--small portfolio__button">
-                DOI
-                <i class="uil uil-external-link-alt button__icon"></i>
-              </a>
-            </div>
-          </div>
-          <!-- ------------------------portfollio 4-------------------- -->
-          <div class="portfolio__content grid swiper-slide">
-            <img src="assets/img/portfolio3.png" class="portfolio__img" />
-
-            <div class="portfolio__data">
-              <h3 class="portfolio__title">Current and future prospects of geothermal energy in Bangladesh</h3>
-              <p class="portfolio__description">
-                In this modern era, geothermal energy is vastly used for producing electricity and it is also a very
-                interesting choice for Bangladesh for the sake of producing electricity. The paper mainly focuses on the
-                production of electricity by using an efficient technique. Applying this process, the cost of producing
-                electrical energy is comparatively low for longerterm purpose.
-                Moreover, mineral water and germicide components can also be produced after a few refining processes.
-              </p>
-              <a href="https://ieeexplore.ieee.org/document/9036550"
-                class="button button--flex button--small portfolio__button">
-                DOI
-                <i class="uil uil-external-link-alt button__icon"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- ------------------------portfollio 5-------------------- -->
-          <div class="portfolio__content grid swiper-slide">
-            <img src="assets/img/portfolio4.png" class="portfolio__img" />
-
-            <div class="portfolio__data">
-              <h3 class="portfolio__title">Locally available Clays of Bangladesh as a Replacement of imported Clays for
-                Ceramic Industries </h3>
-              <p class="portfolio__description">
-                Sorting In Bangladesh, generally imported clays are used as the main ingredient in ceramicware
-                industries. Though locally available clays can be refined and used instead of imported ones to minimize
-                the high manufacturing cost.
-                In this research, 3 locally available clays were investigated both mechanically and spectrally.
-                The XRF analysis of local non-refined clays in contrast to imported clays has indicated the presence of
-                excess SiO2 content (about 35%) in the form of free silica as well as TiO2 and iron oxide but the Al2O3
-                content are a presence in lower amount (around 8.7%).
-              </p>
-              <a href="https://aml.iaamonline.org/article_13789.html"
-                class="button button--flex button--small portfolio__button">
-                DOI
-                <i class="uil uil-external-link-alt button__icon"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- add arrows -->
-        <div class="swiper-button-next">
-          <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-        </div>
-        <div class="swiper-button-prev">
-          <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-        </div>
-        <!-- add pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-
-    <!--===================== Contact Me =====================-->
-    <section class="contact section" id="contact">
-      <h2 class="section__title">Contact Me</h2>
-      <span class="section__subtitle">Get in touch</span>
-
-      <div class="contact__container container grid">
-        <div>
-          <div class="contact__information">
-            <i class="uil uil-calling contact__icon"></i>
-
-            <div>
-              <h3 class="contact__title">Contact Me</h3>
-              <span class="contact__subtitle"><a href="tel:+8801753524725"></a>+8801753524725</span>
-            </div>
-          </div>
-
-          <div class="contact__information">
-            <i class="uil uil-envelope-minus contact__icon"></i>
-
-            <div>
-              <h3 class="contact__title">Email</h3>
-              <span class="contact__subtitle">mdasifbinkarim@gmail.com</span>
-            </div>
-          </div>
-
-          <div class="contact__information">
-            <i class="uil uil-map-marker contact__icon"></i>
-
-            <div>
-              <h3 class="contact__title">Location</h3>
-              <span class="contact__subtitle">AR-72204,USA</span>
-            </div>
-          </div>
-        </div>
-
-        <form action="" class="contact__form grid">
-          <div class="contact__inputs grid">
-            <div class="contact__content">
-              <label for="" class="content__label">Name</label>
-              <input type="text" class="contact__input" />
-            </div>
-
-            <div class="contact__content">
-              <label for="" class="content__label">Email</label>
-              <input type="Email" class="contact__input" />
-            </div>
-          </div>
-
-          <div class="contact__content">
-            <label for="" class="content__label">Message</label>
-            <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
-          </div>
-
-          <div>
-            <a href=" mailto: mdasifbinkarim@gmail.com?subject=Testing out mailto! &body=This is only a test!"
-              class="button button--flex">
-              Send Message
-              <i class="uil uil-message button__icon"></i>
+            <h3 class="cert-title">Best Poster Award</h3>
+            <p class="cert-issuer">IEEE</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
             </a>
-          </div>
-        </form>
-      </div>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_Career Essentials in GitHub Professional Certificate_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_Excel Essential Training Microsoft 365_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_Python Essential Training 2018_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_The Cybersecurity Threat Landscape_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/CertificateOfCompletion_Virtual Reality Foundations_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/Official_Certification_Issued_Six_Sigma_White_Belt_Certification.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/SixSigmaYellowBelt-MDASIFBINKARIM-895363_page-0001.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+            </article>
+                        <article class="cert-card">
+            <div class="cert-image-wrap">
+                <img src="images/Official_Certification_Issued_Six_Sigma_White_Belt_Certification.jpg" alt="Certification 1 preview" class="cert-image">
+            </div>
+            <h3 class="cert-title">[Certification 1]</h3>
+            <p class="cert-issuer">[Issuer name]</p>
+            <p class="cert-meta">[Month YYYY] · [Short note]</p>
+            <a href="https://certificate-url.example.com"
+                class="cert-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                View Certificate
+            </a>
+            </article>
+
+            <!-- Add more cert-card elements (up to 10) -->
+        </div>
+        </div>
+
+        <button class="cert-arrow cert-arrow-right" id="cert-next" type="button">›</button>
+    </div>
     </section>
+
+
+        <!-- Experience -->
+    <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="exp-timeline-wrapper">
+        <!-- One shared vertical line behind all dots -->
+        <div class="exp-timeline-line"></div>
+
+        <!-- All experience items -->
+        <div class="exp-items">
+
+        <!-- Experience 1 -->
+        <div class="exp-item">
+            <div class="exp-marker">
+            <span class="exp-dot"></span>
+            </div>
+            <div class="exp-content">
+            <div class="exp-header">
+                <img src="images/EAC-Logo.png" alt="Company 1 logo" class="exp-logo">
+                <div>
+                <div class="exp-title">Graduate Research Assistant</div>
+                <div class="exp-company">Emerging Analytics Center</div>
+                <div class="exp-meta">
+                    <span class="exp-dates">[Aug 2025] – Present</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-duration">[X yrs Y mos]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-location">[Arkansas, USA]</span>
+                </div>
+                </div>
+            </div>
+
+            <p class="exp-description">
+                <button class="exp-toggle" type="button" data-target="exp-details-1">
+                [Responsibilities]
+                </button>
+            </p>
+            <ul id="exp-details-1" class="exp-details">
+                <li>[Key responsibility 1]</li>
+                <li>[Key responsibility 2]</li>
+                <li>[Key responsibility 3]</li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Experience 2 -->
+        <div class="exp-item">
+            <div class="exp-marker">
+            <span class="exp-dot"></span>
+            </div>
+            <div class="exp-content">
+            <div class="exp-header">
+                <img src="images/WALTON logo.png" alt="Company 2 logo" class="exp-logo">
+                <div>
+                <div class="exp-title">Team Lead @ Quality Management</div>
+                <div class="exp-company">Walton Digi-Tech Industries Limited</div>
+                <div class="exp-meta">
+                    <span class="exp-dates">[Feb 2023] – [Jul 2025]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-duration">[X yrs Y mos]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-location">[Dhaka, Bangladesh]</span>
+                </div>
+                </div>
+            </div>
+
+            <p class="exp-description">
+                <button class="exp-toggle" type="button" data-target="exp-details-2">
+                [Key Roles]
+                </button>
+            </p>
+            <ul id="exp-details-2" class="exp-details">
+                <li>Ensured the project organization as per SLA and reduce process variations to improve the Sigma Score of the individual process through proper implementation of DMAIC methodology Production Support, fault analysis, providing solutions, and introducing new Processes.</li>
+                <li>Was responsible for troubleshooting issues and identifying root causes and implementing corrective actions to minimize downtime and prevent recurring problems.</li>
+                <li>Was responsible for making any Engineerin  g Change to accelerate productivity and efficiency as well as reducing the non-conformity rate</li>
+                <li>Performed SPC & FMEA methods to identify the relative impact of different failures.</li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="exp-item">
+            <div class="exp-marker">
+            <span class="exp-dot"></span>
+            </div>
+            <div class="exp-content">
+            <div class="exp-header">
+                <img src="images/WALTON logo.png" alt="Company 3 logo" class="exp-logo">
+                <div>
+                <div class="exp-title">Team Lead @ Manufacturing Process Engineering</div>
+                <div class="exp-company">Walton Digi-Tech Industries Limited</div>
+                <div class="exp-meta">
+                    <span class="exp-dates">[Oct 2020] – [Jan 2023]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-duration">[X yrs Y mos]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-location">[Dhaka, Bangladesh]</span>
+                </div>
+                </div>
+            </div>
+
+            <p class="exp-description">
+                <button class="exp-toggle" type="button" data-target="exp-details-3">
+                [Key Roles]
+                </button>
+            </p>
+            <ul id="exp-details-3" class="exp-details">
+                <li>Implemented and ensured statistical process control (SPC) and Design of Experiments (DOE) methodologies to monitor and improve process stability and capability (Cp, Cpk).</li>
+                <li>Drove Lean Six Sigma projects to streamline workflows, eliminate waste, and optimize resource utilization.</li>
+                <li>Monitored critical process parameters (CPP) and critical quality attributes (CQA) to ensure product compliance with internal and external specifications.</li>
+            </ul>
+            </div>
+        </div>
+
+        <!-- Experience 4 -->
+        <div class="exp-item">
+            <div class="exp-marker">
+            <span class="exp-dot"></span>
+            </div>
+            <div class="exp-content">
+            <div class="exp-header">
+                <img src="images/Samsung.png" alt="Company 4 logo" class="exp-logo">
+                <div>
+                <div class="exp-title">Production Engineer @ Joint Design Manufacturing (JDM)</div>
+                <div class="exp-company">Samsung - Fair Electronics Limited</div>
+                <div class="exp-meta">
+                    <span class="exp-dates">[Mar 2020] – [Oct 2020]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-duration">[X yrs Y mos]</span>
+                    <span class="exp-separator">·</span>
+                    <span class="exp-location">[Narshingdi, Bangladesh]</span>
+                </div>
+                </div>
+            </div>
+
+            <p class="exp-description">
+                <button class="exp-toggle" type="button" data-target="exp-details-4">
+                [Key Roles]
+                </button>
+            </p>
+            <ul id="exp-details-4" class="exp-details">
+                <li>Emphasized reducing process rejection by implementing various Lean tools and Kaizen.</li>
+                <li>Focused on achieving maximum FTR, UPH, PPMH, and Efficiency, while minimizing OQC lot rejects.</li>
+            </ul>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    </section>
+
+
+
+
+    <!-- MISC -->
+            <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Get in touch</p>
+
+    <div class="contact-grid">
+        <!-- Google Map -->
+        <div class="contact-panel">
+        <iframe
+            class="contact-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.225093037964!2d-92.344606!3d34.722103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d2a72f0a9d9b47%3A0x4b0d3a6b0f7c2bc9!2s2801%20S%20University%20Ave%2C%20Little%20Rock%2C%20AR%2072204!5e0!3m2!1sen!2sus!4v1700000000000"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        </div>
+
+        <!-- Contact form -->
+        <div class="contact-panel">
+        <form id="contact-form" class="contact-form">
+            <div class="contact-row">
+            <label for="contact-name">Name</label>
+            <input
+                type="text"
+                id="contact-name"
+                name="name"
+                placeholder="Name">
+            </div>
+
+            <div class="contact-row">
+            <label for="contact-email">Email</label>
+            <input
+                type="email"
+                id="contact-email"
+                name="email"
+                placeholder="Email">
+            </div>
+
+            <div class="contact-row">
+            <label for="contact-message">Message</label>
+            <textarea
+                id="contact-message"
+                name="message"
+                rows="6"
+                placeholder="Message"></textarea>
+            </div>
+
+            <button type="button" class="contact-submit" id="contact-submit">
+            Send Message
+            </button>
+        </form>
+        </div>
+    </div>
+    </section>
+
+
+
   </main>
 
-  <!--================== Footer ===============-->
-  <footer class="footer">
-    <div class="footer__bg">
-      <div class="footer__container container grid">
-        <div>
-          <h1 class="footer__title"></h1>
-          <span class="footer__subtitle"></span>
-        </div>
+  <!-- IMAGE MODAL FOR PUBLICATION THUMBNAILS -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Full size figure">
+  </div>
 
-        <ul class="footer__links">
-          <li>
-            <a href="#qualification" class="footer__link">Qualification</a>
-          </li>
-          <li>
-            <a href="#portfolio" class="footer__link">Publications</a>
-          </li>
-          <li>
-            <a href="#contact" class="footer__link no-line-break">Contact-Me</a>
-          </li>
-        </ul>
-
-        <div class="footer__socials">
-          <a href="https://www.instagram.com/asif/" class="footer__social" target="__blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-
-          <a href="https://twitter.com/asif" target="__blank" class="footer__social">
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-        </div>
-      </div>
-
-      <p class="footer__copy">&#169; Asif. All right reserved</p>
-    </div>
+  <footer>
+    <p>&copy;Asif Bin Karim. All rights reserved.</p>
   </footer>
 
-  <!--================== SCROLL TOP ==================-->
-  <a href="#" class="scrollup" id="scroll-up">
-    <i class="uil uil-arrow-up scrollup__icon"></i>
-  </a>
-
-  <script type="text/javascript" src="assets/swiper-bundle.min.js"></script>
-  <script src="assets/ptj.js"></script>
-  <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
+  <script src="scripts.js"></script>
 </body>
-
 </html>
