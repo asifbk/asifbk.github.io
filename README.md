@@ -1,42 +1,40 @@
-# Minimal Academic Website Template
+# Personal Portfolio Website
 
-A clean, minimal academic website template, designed for researchers and PhD students. The design and source code are from [Yuhui Zhang](https://cs.stanford.edu/~yuhuiz/).
-
-![Screenshot](images/demo.jpg)
+Single-page portfolio website for **Md Asif Bin Karim**, showcasing research, publications, certifications, education, experience, and contact information. The site is built with vanilla **HTML, CSS, and JavaScript**, and includes responsive sliders for publications and certifications.
 
 ## Features
 
-- Minimalist, academic-focused design
-- Responsive layout
-- Easy to customize
-- SEO-friendly meta tags
-- Publication showcase support
+- Responsive single-page layout (header, education, experience, publications, certifications, contact).
+- Typewriter-style animated name in the hero/header.
+- Timeline-style Experience section with clickable role summaries.
+- Education section with collapsible details for each degree.
+- Publications section:
+  - Data loaded from `publications.json`.
+  - Horizontal slider (up to 2 publications visible per view on large screens, fewer on small screens).
+  - Modal image viewer for publication thumbnails.
+  - Toggle between “Selected” and “All” publications.
+- Certifications section:
+  - Card-based slider (up to 4 certificates per view on large screens, fewer on small screens).
+  - Larger certificate thumbnails with “View Certificate” external links.
+- Contact section:
+  - Embedded Google Map for `2801 S. University Ave, Little Rock, AR 72204`.
+  - Contact form that opens the user’s email client via `mailto:` with prefilled subject and body.
 
-## Quick Start
+## Tech Stack
 
-0. Clone this repository and `cd` into the directory
-1. Run `python -m http.server` and visit `http://localhost:8000`
-2. Replace placeholders marked with `[brackets]` in `index.html`
-3. Update profile photo in `images/profile.jpeg`
-4. Modify `publications.json` for your papers
-5. Customize sections as needed (About, Research, News, etc.)
+- **HTML5** for structure
+- **CSS3** (flexbox + grid, responsive design)
+- **Vanilla JavaScript** for:
+  - Publications JSON loading and rendering
+  - Generic slider logic for publications and certifications
+  - Collapsible sections (experience, education)
+  - Modal image viewer
+  - Contact `mailto:` handling
 
-## File Structure
-
-```
+## Project Structure
 .
-├── index.html          # Main webpage
-├── styles.css          # CSS styling
-├── scripts.js          # JavaScript for dynamic content
-├── publications.json   # Publication data
-└── images/            # Image assets
-    └── profile.jpg
-```
-
-## License
-
-MIT License
-
----
-
-For a live example, visit [Yuhui Zhang's website](https://cs.stanford.edu/~yuhuiz/).
+├── index.html # Main single-page portfolio
+├── styles.css # Global styles, layouts, animations
+├── scripts.js # Sliders, toggles, modal, contact logic
+├── publications.json # Publications data (title, authors, venue, links, etc.)
+└── images/ # Logos, profile image, publication thumbnails, certificates
