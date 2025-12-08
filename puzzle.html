@@ -23,53 +23,53 @@
 
     .sudoku-container {
       background: white;
-      border-radius: 20px;
-      padding: 40px;
+      border-radius: 12px;
+      padding: 18px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      max-width: 500px;
+      max-width: 300px;
       width: 100%;
+      position: relative;
     }
 
     .sudoku-header {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 12px;
     }
 
     .sudoku-header h1 {
       color: #667eea;
-      font-size: 28px;
-      margin-bottom: 10px;
+      font-size: 18px;
+      margin-bottom: 4px;
     }
 
     .sudoku-header p {
       color: #666;
-      font-size: 14px;
+      font-size: 11px;
     }
 
     .game-info {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 25px;
-      padding: 15px;
+      margin-bottom: 12px;
+      padding: 8px;
       background: #f8f9fa;
-      border-radius: 10px;
-      flex-wrap: wrap;
-      gap: 10px;
+      border-radius: 6px;
+      gap: 6px;
     }
 
     .info-item {
       text-align: center;
-      min-width: 100px;
+      min-width: 60px;
     }
 
     .info-label {
-      font-size: 12px;
+      font-size: 9px;
       color: #666;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
 
     .info-value {
-      font-size: 22px;
+      font-size: 15px;
       font-weight: bold;
       color: #667eea;
     }
@@ -77,13 +77,13 @@
     .sudoku-board {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
+      gap: 2px;
       background: #2d3748;
-      padding: 3px;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      max-width: 350px;
+      padding: 2px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 220px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -91,15 +91,15 @@
     .sudoku-cell {
       aspect-ratio: 1;
       background: white;
-      border: 2px solid #e2e8f0;
+      border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 36px;
+      font-size: 26px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
-      border-radius: 8px;
+      border-radius: 4px;
     }
 
     .sudoku-cell:hover:not(.fixed) {
@@ -152,20 +152,20 @@
     .number-pad {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-      max-width: 350px;
+      gap: 6px;
+      margin-bottom: 10px;
+      max-width: 220px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .number-btn {
-      padding: 18px;
+      padding: 10px;
       border: 2px solid #dee2e6;
       background: white;
-      border-radius: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 24px;
+      font-size: 16px;
       font-weight: 700;
       color: #495057;
       transition: all 0.2s ease;
@@ -187,7 +187,7 @@
       background: #f8d7da;
       color: #721c24;
       grid-column: span 3;
-      font-size: 18px;
+      font-size: 13px;
     }
 
     .number-btn.clear:hover {
@@ -198,18 +198,18 @@
 
     .controls {
       display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
+      gap: 6px;
+      margin-bottom: 10px;
       flex-wrap: wrap;
     }
 
     .btn {
       flex: 1;
-      min-width: 140px;
-      padding: 14px 20px;
+      min-width: 100px;
+      padding: 8px 12px;
       border: none;
-      border-radius: 10px;
-      font-size: 15px;
+      border-radius: 6px;
+      font-size: 11px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -238,20 +238,27 @@
     .hint {
       text-align: center;
       color: #666;
-      font-size: 14px;
+      font-size: 10px;
       font-style: italic;
-      margin-top: 10px;
+      margin-top: 6px;
     }
 
     .success-message {
       display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      padding: 35px;
+      padding: 18px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      border-radius: 15px;
-      margin-top: 25px;
+      border-radius: 10px;
       animation: slideIn 0.5s ease;
+      z-index: 100;
+      width: 90%;
+      max-width: 280px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     }
 
     .success-message.show {
@@ -259,25 +266,25 @@
     }
 
     .success-message h2 {
-      font-size: 32px;
-      margin-bottom: 15px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .success-message p {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       opacity: 0.95;
-      font-size: 17px;
+      font-size: 12px;
     }
 
     .download-btn {
       display: inline-block;
-      padding: 16px 45px;
+      padding: 10px 24px;
       background: white;
       color: #667eea;
       text-decoration: none;
-      border-radius: 30px;
+      border-radius: 20px;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 12px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
@@ -290,12 +297,23 @@
     @keyframes slideIn {
       from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) scale(0.8);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate(-50%, -50%) scale(1);
       }
+    }
+
+    .success-message::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
     }
 
     .confetti {
@@ -314,16 +332,16 @@
 
     @media (max-width: 600px) {
       .sudoku-container {
-        padding: 25px;
+        padding: 15px;
       }
 
       .sudoku-cell {
-        font-size: 28px;
+        font-size: 22px;
       }
 
       .number-btn {
-        padding: 15px;
-        font-size: 20px;
+        padding: 8px;
+        font-size: 14px;
       }
     }
   </style>
