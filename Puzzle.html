@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock CV - Mini Sudoku</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .sudoku-container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .sudoku-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .sudoku-header h1 {
+      color: #667eea;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .sudoku-header p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .game-info {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .info-item {
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .sudoku-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      background: #2d3748;
+      padding: 3px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sudoku-cell {
+      aspect-ratio: 1;
+      background: white;
+      border: 2px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .sudoku-cell:hover:not(.fixed) {
+      background: #f0f4ff;
+      transform: scale(1.05);
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    .sudoku-cell.selected {
+      background: #e0e7ff;
+      border: 3px solid #667eea;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+    }
+
+    .sudoku-cell.fixed {
+      background: #f8f9fa;
+      color: #2d3748;
+      cursor: default;
+      font-weight: 800;
+    }
+
+    .sudoku-cell.user-input {
+      color: #667eea;
+    }
+
+    .sudoku-cell.correct {
+      background: #d4edda;
+      color: #155724;
+      animation: correctPulse 0.6s ease;
+    }
+
+    .sudoku-cell.incorrect {
+      background: #f8d7da;
+      color: #721c24;
+      animation: shake 0.5s ease;
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+
+    .number-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .number-btn {
+      padding: 18px;
+      border: 2px solid #dee2e6;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 700;
+      color: #495057;
+      transition: all 0.2s ease;
+    }
+
+    .number-btn:hover {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .number-btn:active {
+      transform: translateY(0);
+    }
+
+    .number-btn.clear {
+      background: #f8d7da;
+      color: #721c24;
+      grid-column: span 3;
+      font-size: 18px;
+    }
+
+    .number-btn.clear:hover {
+      background: #dc3545;
+      color: white;
+      border-color: #dc3545;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #e9ecef;
+      color: #495057;
+    }
+
+    .btn-secondary:hover {
+      background: #dee2e6;
+    }
+
+    .hint {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 35px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 15px;
+      margin-top: 25px;
+      animation: slideIn 0.5s ease;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .success-message h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .success-message p {
+      margin-bottom: 20px;
+      opacity: 0.95;
+      font-size: 17px;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 16px 45px;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .download-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(255,255,255,0.4);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      z-index: 9999;
+    }
+
+    @keyframes confetti-fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sudoku-container {
+        padding: 25px;
+      }
+
+      .sudoku-cell {
+        font-size: 28px;
+      }
+
+      .number-btn {
+        padding: 15px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sudoku-container">
+    <div class="sudoku-header">
+      <h1>🧩 Unlock CV - Mini Sudoku</h1>
+      <p>Solve the 3×3 Sudoku to access Md Asif Bin Karim's CV</p>
+    </div>
+
+    <div class="game-info">
+      <div class="info-item">
+        <div class="info-label">Empty Cells</div>
+        <div class="info-value" id="remaining">3</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Time</div>
+        <div class="info-value" id="timer">0:00</div>
+      </div>
+    </div>
+
+    <div class="sudoku-board" id="sudoku-board"></div>
+
+    <div class="number-pad">
+      <button class="number-btn" data-number="1">1</button>
+      <button class="number-btn" data-number="2">2</button>
+      <button class="number-btn" data-number="3">3</button>
+      <button class="number-btn clear" data-number="0">✖ Clear</button>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="new-game-btn">🔄 New Puzzle</button>
+      <button class="btn btn-primary" id="hint-btn">💡 Hint</button>
+    </div>
+
+    <div class="hint" id="hint-text">Click a cell and select a number (1, 2, or 3)</div>
+
+    <div class="success-message" id="success-message">
+      <h2>🎉 Puzzle Solved!</h2>
+      <p>You completed it in <span id="final-time">0:00</span>! 🏆</p>
+      <a href="https://drive.google.com/file/d/12lGvh1psBkezkEesaNnWCDKDHsP069kO/view?usp=sharing" 
+         target="_blank" 
+         class="download-btn">
+        📄 Download CV Now
+      </a>
+    </div>
+  </div>
+
+  <script>
+    class MiniSudoku {
+      constructor() {
+        this.size = 3;
+        this.board = [];
+        this.solution = [];
+        this.selectedCell = null;
+        this.seconds = 0;
+        this.timer = null;
+        this.gameStarted = false;
+        
+        this.boardElement = document.getElementById('sudoku-board');
+        this.timerDisplay = document.getElementById('timer');
+        this.remainingDisplay = document.getElementById('remaining');
+        this.hintText = document.getElementById('hint-text');
+        this.successMessage = document.getElementById('success-message');
+        
+        this.init();
+        this.setupEventListeners();
+      }
+
+      init() {
+        this.generatePuzzle();
+        this.renderBoard();
+      }
+
+      setupEventListeners() {
+        // Number pad
+        document.querySelectorAll('.number-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const number = parseInt(e.target.dataset.number);
+            this.enterNumber(number);
+          });
+        });
+
+        // Control buttons
+        document.getElementById('new-game-btn').addEventListener('click', () => this.newGame());
+        document.getElementById('hint-btn').addEventListener('click', () => this.useHint());
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+          if (this.selectedCell === null) return;
+          
+          if (e.key >= '1' && e.key <= '3') {
+            this.enterNumber(parseInt(e.key));
+          } else if (e.key === 'Backspace' || e.key === 'Delete' || e.key === '0') {
+            this.enterNumber(0);
+          }
+        });
+      }
+
+      generatePuzzle() {
+        // Generate a valid 3x3 solution
+        const solutions = [
+          [[1,2,3],[3,1,2],[2,3,1]],
+          [[1,3,2],[2,1,3],[3,2,1]],
+          [[2,1,3],[3,2,1],[1,3,2]],
+          [[2,3,1],[1,2,3],[3,1,2]],
+          [[3,1,2],[2,3,1],[1,2,3]],
+          [[3,2,1],[1,3,2],[2,1,3]]
+        ];
+        
+        // Pick a random solution
+        this.solution = JSON.parse(JSON.stringify(
+          solutions[Math.floor(Math.random() * solutions.length)]
+        ));
+        
+        // Create puzzle by removing 3 numbers
+        this.board = JSON.parse(JSON.stringify(this.solution));
+        
+        const positions = [];
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            positions.push([i, j]);
+          }
+        }
+        
+        // Shuffle and remove 3 cells
+        this.shuffleArray(positions);
+        for (let i = 0; i < 3; i++) {
+          const [row, col] = positions[i];
+          this.board[row][col] = 0;
+        }
+        
+        this.updateRemaining();
+      }
+
+      renderBoard() {
+        this.boardElement.innerHTML = '';
+        
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            const cell = document.createElement('div');
+            cell.className = 'sudoku-cell';
+            cell.dataset.row = i;
+            cell.dataset.col = j;
+            
+            if (this.board[i][j] !== 0) {
+              cell.textContent = this.board[i][j];
+              cell.classList.add('fixed');
+            } else {
+              cell.textContent = '';
+            }
+            
+            cell.addEventListener('click', () => this.selectCell(i, j));
+            
+            this.boardElement.appendChild(cell);
+          }
+        }
+      }
+
+      selectCell(row, col) {
+        const index = row * 3 + col;
+        const cell = this.boardElement.children[index];
+        
+        if (cell.classList.contains('fixed')) return;
+        
+        // Remove previous selection
+        document.querySelectorAll('.sudoku-cell').forEach(c => c.classList.remove('selected'));
+        
+        // Select new cell
+        cell.classList.add('selected');
+        this.selectedCell = { row, col };
+        
+        if (!this.gameStarted) {
+          this.startTimer();
+          this.gameStarted = true;
+        }
+      }
+
+      enterNumber(num) {
+        if (this.selectedCell === null) {
+          this.showHint('⚠️ Please select an empty cell first');
+          return;
+        }
+        
+        const { row, col } = this.selectedCell;
+        const index = row * 3 + col;
+        const cell = this.boardElement.children[index];
+        
+        if (cell.classList.contains('fixed')) return;
+        
+        // Clear the cell
+        if (num === 0) {
+          this.board[row][col] = 0;
+          cell.textContent = '';
+          cell.className = 'sudoku-cell selected';
+          this.updateRemaining();
+          return;
+        }
+        
+        // Enter number
+        this.board[row][col] = num;
+        cell.textContent = num;
+        cell.classList.add('user-input');
+        
+        // Check if correct
+        if (num === this.solution[row][col]) {
+          cell.classList.remove('incorrect');
+          cell.classList.add('correct');
+          
+          setTimeout(() => {
+            cell.classList.remove('correct');
+          }, 600);
+          
+          this.updateRemaining();
+          this.checkWin();
+        } else {
+          cell.classList.add('incorrect');
+          this.showHint('❌ Wrong number! Try again');
+          
+          setTimeout(() => {
+            cell.classList.remove('incorrect');
+          }, 600);
+        }
+      }
+
+      updateRemaining() {
+        let remaining = 0;
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            if (this.board[i][j] === 0) {
+              remaining++;
+            }
+          }
+        }
+        this.remainingDisplay.textContent = remaining;
+      }
+
+      useHint() {
+        // Find first empty cell
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            if (this.board[i][j] === 0) {
+              this.selectCell(i, j);
+              const correctNumber = this.solution[i][j];
+              
+              setTimeout(() => {
+                this.enterNumber(correctNumber);
+                this.showHint(`💡 Hint: Filled with ${correctNumber}`);
+              }, 300);
+              
+              return;
+            }
+          }
+        }
+        
+        this.showHint('✅ All cells are filled!');
+      }
+
+      checkWin() {
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            if (this.board[i][j] !== this.solution[i][j]) {
+              return;
+            }
+          }
+        }
+        
+        this.winGame();
+      }
+
+      winGame() {
+        this.stopTimer();
+        
+        setTimeout(() => {
+          document.getElementById('final-time').textContent = this.timerDisplay.textContent;
+          this.successMessage.classList.add('show');
+          this.createConfetti();
+        }, 500);
+      }
+
+      newGame() {
+        this.stopTimer();
+        this.seconds = 0;
+        this.gameStarted = false;
+        this.selectedCell = null;
+        
+        this.timerDisplay.textContent = '0:00';
+        this.successMessage.classList.remove('show');
+        
+        this.generatePuzzle();
+        this.renderBoard();
+        this.showHint('🎯 New puzzle! Fill the empty cells');
+      }
+
+      startTimer() {
+        this.timer = setInterval(() => {
+          this.seconds++;
+          const minutes = Math.floor(this.seconds / 60);
+          const secs = this.seconds % 60;
+          this.timerDisplay.textContent = `${minutes}:${secs.toString().padStart(2, '0')}`;
+        }, 1000);
+      }
+
+      stopTimer() {
+        if (this.timer) {
+          clearInterval(this.timer);
+          this.timer = null;
+        }
+      }
+
+      showHint(message) {
+        this.hintText.textContent = message;
+        
+        setTimeout(() => {
+          this.hintText.textContent = 'Click a cell and select a number (1, 2, or 3)';
+        }, 3000);
+      }
+
+      shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      createConfetti() {
+        const colors = ['#667eea', '#764ba2', '#f093fb', '#4facfe', '#43e97b', '#ffd700'];
+        
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-10px';
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = (Math.random() * 10 + 5) + 'px';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animation = `confetti-fall ${Math.random() * 2 + 2}s linear`;
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 4000);
+          }, i * 20);
+        }
+      }
+    }
+
+    // Initialize game
+    window.addEventListener('load', () => {
+      new MiniSudoku();
+    });
+  </script>
+</body>
+</html>
