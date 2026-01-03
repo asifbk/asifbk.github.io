@@ -931,7 +931,16 @@ strong {
 .exp-company {
   font-size: clamp(1.5rem, 2.4vw, 1.5rem);
   color: var(--text-secondary);
-}
+    transition: color 0.2s, text-decoration 0.2s;
+  }
+  .exp-company a {
+    color: #0073e6;
+    text-decoration: none;
+  }
+  .exp-company a:hover {
+    color: #005bb5;
+    text-decoration: underline;
+  }
 
 .exp-meta {
   font-size: clamp(0.95rem, 1.4vw, 1.05rem);
