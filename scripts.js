@@ -821,6 +821,7 @@ window.onclick = function(event) {
     closeModal();
   }
 };
+
 document.getElementById('cv-puzzle-link').addEventListener('click', (e) => {
   e.preventDefault();
   window.open('puzzle.html', '_blank'); // Open puzzle in new tab
