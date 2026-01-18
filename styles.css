@@ -11,12 +11,6 @@
   --card-bg: #f6f6ff;
   --input-bg: #f7f7ff;
   /* Cache buster: v2.0 */
-  
-  /* Fluid scaling variables */
-  --scale: clamp(0.75, 2vw, 1.25);
-  --base-font: clamp(12px, 1.5vw, 20px);
-  --padding-base: clamp(0.5rem, 2vw, 2rem);
-  --gap-base: clamp(0.5rem, 1.5vw, 1.5rem);
 }
 
 /* Smooth scroll behavior */
@@ -111,13 +105,13 @@ nav {
   top: 0;
   z-index: 100;
   background-color: var(--bg-color);
-  padding: clamp(0.5rem, 1.5vw, 1rem) clamp(0.5rem, 2vw, 1.5rem);
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-color);
   margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(0.5rem, 1.5vw, 1.5rem);
+  gap: 1rem;
 }
 
 nav ul {
@@ -125,22 +119,11 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(0.8rem, 2vw, 2rem);
+  gap: 1.75rem;
   align-items: center;
   flex: 1;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-nav a {
-  font-size: clamp(0.85rem, 1.2vw, 1rem);
-  padding: clamp(0.3rem, 0.8vw, 0.6rem) clamp(0.4rem, 1vw, 0.8rem);
-}
-
-nav a i {
-  margin-right: clamp(0.2rem, 0.5vw, 0.4rem);
 }
 
 /* Theme toggle button */
@@ -180,24 +163,23 @@ body {
   background-color: var(--bg-color);
   font-weight: 300;
   min-height: 100vh;
-  font-size: var(--base-font);
 }
 
 main {
-  padding: clamp(1rem, 5vw, 3rem) clamp(1rem, 5vw, 5rem);
-  width: 100%;
-  box-sizing: border-box;
-}
+     padding: 1.5rem 5vw;
+     width: 100%;
+     box-sizing: border-box;
+   }
    
 header {
-  margin-bottom: clamp(1rem, 3vw, 2rem);
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: clamp(0.5rem, 2vw, 1.5rem);
-  padding-left: clamp(1rem, 5vw, 6rem);
+  padding-bottom: 1rem;
+  padding-left: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: clamp(1rem, 3vw, 2rem);
+  gap: 2rem;
 }
 
 .header-content {
@@ -213,8 +195,8 @@ header {
 }
 
 .header-image img {
-  width: clamp(120px, 20vw, 200px);
-  height: clamp(120px, 20vw, 200px);
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--border-color);
@@ -227,7 +209,7 @@ header {
 }
 
 h1 {
-  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 500;
   margin-bottom: 0.25rem;
   letter-spacing: -0.02em;
@@ -235,16 +217,16 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-size: clamp(1.8rem, 2.2vw, 2.6rem);
   font-weight: 500;
-  margin: clamp(1rem, 3vw, 2rem) 0 clamp(0.5rem, 1.5vw, 1rem);
+  margin: 1.75rem 0 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border-color);
   letter-spacing: -0.01em;
   line-height: 1.3;
   display: flex;
   align-items: center;
-  gap: clamp(0.3rem, 1vw, 0.7rem);
+  gap: 0.7em;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -687,18 +669,58 @@ strong {
   transform: scale(1.1);
 }
 
-/* Responsive design - maintain desktop layout at all sizes */
-/* All elements scale proportionally with clamp() - no layout changes */
+/* Responsive design fixes */
+@media (max-width: 768px) {
+  /* Make header stack vertically on mobile */
+  header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* Center social links on mobile */
+  .social-links-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Responsive publication thumbnails */
+  .pub-thumbnail {
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  }
+
+  /* Disable right-moving hover animations on mobile */
+  .publication-item:hover,
+  .award-item:hover,
+  .service-category:hover,
+  .misc-item:hover,
+  .news-list li:hover,
+  nav a:hover,
+  .social-links-header a:hover,
+  .pub-links a:hover {
+    transform: none !important;
+  }
+}
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0 1.5rem;
+}
 
 .social-icons {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  margin: clamp(0.5rem, 1vw, 1rem) 0 clamp(1rem, 2vw, 1.5rem);
+  gap: 1rem;
+  margin: 0.5rem 0 1.5rem;
 }
 
 .social-icons a {
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(3rem, 3vw, 2.6rem);  /* larger icons */
   transition: transform var(--transition-time) ease,
               opacity var(--transition-time) ease,
               filter var(--transition-time) ease;
@@ -710,14 +732,15 @@ strong {
   filter: drop-shadow(0 4px 8px rgba(74, 116, 185, 0.3));
 }
 
+
 /* Brand colors */
-.social-linkedin  { color: #0a66c2; }
-.social-researchgate { color: #00ccbb; }
-.social-gscholar  { color: #4285f4; }
-.social-orcid     { color: #a6ce39; }
-.social-discord   { color: #5865f2; }
-.social-mail      { color: #718096; }
-.social-github    { color: #181717; }
+.social-linkedin  { color: #0a66c2; }   /* LinkedIn blue */
+.social-researchgate { color: #00ccbb; }/* ResearchGate teal */
+.social-gscholar  { color: #4285f4; }   /* Google blue */
+.social-orcid     { color: #a6ce39; }   /* ORCID green */
+.social-discord   { color: #5865f2; }   /* Discord blurple */
+.social-mail      { color: #718096; }   /* Neutral gray for email */
+.social-github       { color: #181717; }  /* GitHub black */
 
 
 /* 3D Model Container */
@@ -1121,7 +1144,15 @@ strong {
 }
 
 /* Stack on small screens */
-/* Removed - maintaining desktop grid layout at all sizes */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-panel {
+    min-height: 260px;
+  }
+}
 /* Certifications slider */
 
 #certifications {
@@ -1263,17 +1294,19 @@ strong {
   border-color: var(--accent-color);
 }
 
-/* Certifications always display in grid - scale proportionally */
-.cert-card {
-  min-width: clamp(200px, 85vw, 280px);
-  max-width: clamp(240px, 90vw, 320px);
+/* Responsive card width so number per row adapts to screen */
+@media (max-width: 768px) {
+  .cert-card {
+    min-width: 85vw;
+    max-width: 90vw;
+  }
 }
 
 /* About section with robot layout */
 #about .about-content {
   display: grid;
-  grid-template-columns: 1fr clamp(250px, 40vw, 400px);
-  gap: clamp(1rem, 3vw, 2rem);
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
   align-items: stretch;
 }
 
@@ -1281,14 +1314,29 @@ strong {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: clamp(300px, 50vh, 400px);
+  min-height: 400px;
 }
 
 #robot-container {
-  width: clamp(250px, 40vw, 400px);
-  height: clamp(250px, 40vw, 400px);
+  width: 400px;
+  height: 400px;
 }
 
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  #about .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  #robot-container {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .about-text {
+    min-height: auto;
+  }
+}
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1412,4 +1460,164 @@ strong {
   font-size: 1.15rem;
   margin: 0;
   color: #333;
+}
+
+/* ============================================
+   MOBILE-FIRST RESPONSIVE PATCH
+   Clean minimal adjustments for mobile/tablet
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Navigation adjustments */
+  nav {
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  nav a i {
+    margin-right: 0.2rem;
+  }
+
+  /* Main content padding */
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Header adjustments */
+  header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* About section grid */
+  #about .about-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-text {
+    min-height: auto;
+  }
+
+  #robot-container {
+    max-width: 300px;
+  }
+
+  /* Education and experience spacing */
+  .edu-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .edu-logo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  .edu-school {
+    font-size: 1.2rem;
+  }
+
+  .edu-degree {
+    font-size: 1rem;
+  }
+
+  .edu-meta {
+    font-size: 0.85rem;
+  }
+
+  .exp-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-logo {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+  }
+
+  .exp-title {
+    font-size: 1.1rem;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+  }
+
+  .exp-meta {
+    font-size: 0.8rem;
+  }
+
+  /* Publication cards */
+  .publication-item {
+    gap: 1rem;
+  }
+
+  .pub-thumbnail {
+    width: 300px;
+    height: 220px;
+  }
+
+  /* Contact grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-panel {
+    padding: 1rem;
+  }
+
+  /* Skill cards */
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Certificate slider */
+  .cert-card {
+    max-width: 220px;
+    padding: 0.8rem;
+  }
+
+  .cert-image-wrap {
+    height: 150px;
+  }
+
+  /* Font size reductions */
+  body {
+    font-size: 0.95rem;
+  }
+
+  .pub-authors {
+    font-size: 0.8rem;
+  }
+
+  .edu-meta,
+  .exp-meta {
+    font-size: 0.85rem;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
