@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Tags for Performance & SEO -->
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md Asif Bin Karim - VR/XR researcher and manufacturing engineer. Exploring immersive learning, digital twins, and haptic feedback systems.">
+  <meta name="keywords" content="VR, XR, Virtual Reality, Extended Reality, Manufacturing, HCI, Haptic Feedback, Digital Twin">
+  <meta name="author" content="Md Asif Bin Karim">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags for Social Sharing -->
+  <meta property="og:title" content="Md Asif Bin Karim - VR/XR Researcher">
+  <meta property="og:description" content="Exploring Virtual Reality, Extended Reality, and manufacturing technologies with a focus on immersive learning and haptic feedback.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asifbk.github.io">
+  <meta property="og:image" content="https://asifbk.github.io/images/profile.jpeg">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Md Asif Bin Karim">
+  <meta name="twitter:description" content="VR/XR researcher and manufacturing engineer">
+  
+  <!-- Performance Meta Tags -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content="#4a74b9">
+  
+  <!-- Preconnect to External Resources -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://www.google.com">
+  
   <title>Md Asif Bin Karim</title>
   <link rel="stylesheet" href="styles.css?v=2.0">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style">
   <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- AOS (Animate On Scroll) Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
 </head>
 <body>
@@ -15,23 +49,23 @@
   <nav>
     <div id="cube-container" style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;"></div>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#certifications">Awards & Certifications</a></li>
-      <li><a href="#career">Career</a></li>
-      <li><a href="#contact">Contact Me</a></li>
-    <li><a href="https://drive.google.com/file/d/1Cb-jaWjIN_WufDkUi4F7jmfi4Rd9YZ91/view" target="_blank" id="cv-puzzle-link">Download CV</a></li>
+      <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+      <li><a href="#education"><i class="fa fa-graduation-cap"></i> Education</a></li>
+      <li><a href="#skills"><i class="fa fa-code"></i> Skills</a></li>
+      <li><a href="#publications"><i class="fa fa-newspaper-o"></i> Publications</a></li>
+      <li><a href="#certifications"><i class="fa fa-trophy"></i> Awards & Certifications</a></li>
+      <li><a href="#career"><i class="fa fa-briefcase"></i> Career</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope"></i> Contact Me</a></li>
+    <li><a href="CV_Karim.pdf?v=2" target="_blank" id="cv-puzzle-link"><i class="fa fa-download"></i> Download CV</a></li>
       <li><button id="theme-toggle" aria-label="Toggle dark mode"><i class="fa fa-moon-o" aria-hidden="true"></i></button></li>
     </ul>
   </nav>
 
   <!-- HEADER WITH NAME + PHOTO -->
-    <header>
+    <header data-aos="fade-up" data-aos-duration="800">
     <div class="header-image">
         <!-- Replace src with your profile image -->
-        <img src="images/profile.jpeg" alt="Profile picture">
+        <img src="images/profile.jpeg" alt="Profile picture" width="200" height="200">
     </div>
 
     <div class="header-content">
@@ -43,7 +77,7 @@
     </header>
 
   <main>
-    <section id="social">
+    <section id="social" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
   <div class="social-icons">
     <a class="social-linkedin" href="https://www.linkedin.com/in/md-asif-bin-karim-480b91379/" target="_blank" aria-label="LinkedIn">
       <i class="fa fa-linkedin-square" aria-hidden="true"></i>
@@ -70,7 +104,7 @@
 </section>
 
     <!-- ABOUT -->
-            <section id="about">
+            <section id="about" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <h2>About</h2>
         
         <div class="about-content">
@@ -78,7 +112,7 @@
             <div class="about-text">
             <p>
                 My research focuses on Virtual Reality (VR) and Extended Reality (XR) technologies, investigating their application in immersive learning, digital twin simulations, and remote collaboration environments. I examine how user interaction paradigms and spatial awareness in immersive settings influence cognitive processes, decision-making efficacy, and system usability, integrating methodologies from human-computer interaction, cognitive psychology, and systems engineering.
-                A central pillar of my research addresses haptic feedback systems and multimodal immersion, exploring how tactile sensations augment presence, task accuracy, and operator confidence in XR applications. Drawing on over five years of professional experience in the manufacturing sector, my primary objective is to translate VR/XR and haptic technologies into manufacturing contexts—facilitating applications such as virtual assembly training, remote diagnostics, ergonomic validation, and operator guidance through immersive digital twins, ultimately enhancing operational efficiency, workplace safety, and workforce skill acquisition.
+                A central pillar of my research addresses haptic feedback systems and multimodal immersion, exploring how tactile sensations augment presence, task accuracy, and operator confidence in XR applications. Drawing on over five years of professional experience in the manufacturing sector, my primary objective is to translate VR/XR and haptic technologies into manufacturing contexts;facilitating applications such as virtual assembly training, remote diagnostics, ergonomic validation, and operator guidance through immersive digital twins, ultimately enhancing operational efficiency, workplace safety, and workforce skill acquisition.
             </div>
             
             <!-- Robot on RIGHT side -->
@@ -87,14 +121,14 @@
         </section>
 
     <!-- EDUCATION -->
-    <section id="education">
+    <section id="education" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <h2>Education</h2>
 
     <!-- UALR -->
     <div class="edu-item">
         <div class="edu-header">
         <div class="edu-left">
-            <img src="images/ualr-logo.png" alt="UALR logo" class="edu-logo">
+            <img src="images/ualr-logo.png" alt="UALR logo" class="edu-logo" loading="lazy">
             <div class="edu-text">
             <h3 class="edu-school">University of Arkansas at Little Rock</h3>
             <div class="edu-degree">Master's in Computer Science</div>
@@ -123,7 +157,7 @@
     <div class="edu-item">
         <div class="edu-header">
         <div class="edu-left">
-            <img src="images/ruet-logo.png" alt="RUET logo" class="edu-logo">
+            <img src="images/ruet-logo.png" alt="RUET logo" class="edu-logo" loading="lazy">
             <div class="edu-text">
             <h3 class="edu-school">Rajshahi University of Engineering &amp; Technology</h3>
             <div class="edu-degree">B.Sc. in Mechatronics Engineering</div>
@@ -150,7 +184,7 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         <h2>Skills</h2>
         <div class="skills-container">
         <div class="skills-group">
@@ -203,7 +237,7 @@
     </section>
 
     <!-- PUBLICATIONS -->
-        <section id="publications">
+        <section id="publications" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <h2>Publications</h2>
     <p>Selected publications and research</p>
 
@@ -222,7 +256,7 @@
 
     <!-- AWARDS -->
 <!-- Certifications Section -->
-        <section id="certifications">
+        <section id="certifications" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         <h2>Certifications</h2>
         <p>Selected credentials and courses</p>
 
@@ -235,7 +269,7 @@
                 <!-- Certificate 1 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/Best Poster Award_page-0001.jpg" alt="Best Poster Award" class="cert-image">
+                    <img src="images/Best Poster Award_page-0001.jpg" alt="Best Poster Award" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Best Poster Award</h3>
                 <p class="cert-issuer">IEEE</p>
@@ -246,7 +280,7 @@
                 <!-- Certificate 2 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn_page-0001.jpg" alt="Career Essentials in Cybersecurity" class="cert-image">
+                    <img src="images/CertificateOfCompletion_Career Essentials in Cybersecurity by Microsoft and LinkedIn_page-0001.jpg" alt="Career Essentials in Cybersecurity" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Career Essentials in Cybersecurity</h3>
                 <p class="cert-issuer">Microsoft</p>
@@ -257,7 +291,7 @@
                 <!-- Certificate 3 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_Career Essentials in GitHub Professional Certificate_page-0001.jpg" alt="GitHub Professional Certificate" class="cert-image">
+                    <img src="images/CertificateOfCompletion_Career Essentials in GitHub Professional Certificate_page-0001.jpg" alt="GitHub Professional Certificate" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Career Essentials in GitHub Professional Certificate</h3>
                 <p class="cert-issuer">GitHub</p>
@@ -268,7 +302,7 @@
                 <!-- Certificate 4 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_Excel Essential Training Microsoft 365_page-0001.jpg" alt="Excel Essential Training" class="cert-image">
+                    <img src="images/CertificateOfCompletion_Excel Essential Training Microsoft 365_page-0001.jpg" alt="Excel Essential Training" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Excel Essential Training Microsoft 365</h3>
                 <p class="cert-issuer">LinkedIn</p>
@@ -279,7 +313,7 @@
                 <!-- Certificate 5 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_Python Essential Training 2018_page-0001.jpg" alt="Python Essential Training" class="cert-image">
+                    <img src="images/CertificateOfCompletion_Python Essential Training 2018_page-0001.jpg" alt="Python Essential Training" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Python Essential Training</h3>
                 <p class="cert-issuer">LinkedIn</p>
@@ -290,7 +324,7 @@
                 <!-- Certificate 6 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_The Cybersecurity Threat Landscape_page-0001.jpg" alt="Cybersecurity Threat Landscape" class="cert-image">
+                    <img src="images/CertificateOfCompletion_The Cybersecurity Threat Landscape_page-0001.jpg" alt="Cybersecurity Threat Landscape" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">The Cybersecurity Threat Landscape</h3>
                 <p class="cert-issuer">LinkedIn</p>
@@ -301,7 +335,7 @@
                 <!-- Certificate 7 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/CertificateOfCompletion_Virtual Reality Foundations_page-0001.jpg" alt="Virtual Reality Foundations" class="cert-image">
+                    <img src="images/CertificateOfCompletion_Virtual Reality Foundations_page-0001.jpg" alt="Virtual Reality Foundations" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Virtual Reality Foundations</h3>
                 <p class="cert-issuer">LinkedIn</p>
@@ -312,7 +346,7 @@
                 <!-- Certificate 8 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/Official_Certification_Issued_Six_Sigma_White_Belt_Certification.jpg" alt="Six Sigma White Belt" class="cert-image">
+                    <img src="images/Official_Certification_Issued_Six_Sigma_White_Belt_Certification.jpg" alt="Six Sigma White Belt" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Six Sigma White Belt Certification</h3>
                 <p class="cert-issuer">CSSC</p>
@@ -323,7 +357,7 @@
                 <!-- Certificate 9 -->
                 <article class="cert-card">
                 <div class="cert-image-wrap">
-                    <img src="images/SixSigmaYellowBelt-MDASIFBINKARIM-895363_page-0001.jpg" alt="Six Sigma Yellow Belt" class="cert-image">
+                    <img src="images/SixSigmaYellowBelt-MDASIFBINKARIM-895363_page-0001.jpg" alt="Six Sigma Yellow Belt" class="cert-image" loading="lazy">
                 </div>
                 <h3 class="cert-title">Six Sigma Yellow Belt Certification</h3>
                 <p class="cert-issuer">6 Sigma Study</p>
@@ -349,7 +383,7 @@
 
 
         <!-- Experience -->
-    <section id="career">
+    <section id="career" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <h2>Career</h2>
 
     <div class="exp-timeline-wrapper">
@@ -366,7 +400,7 @@
             </div>
             <div class="exp-content">
             <div class="exp-header">
-                <img src="images/EAC-Logo.png" alt="Company 1 logo" class="exp-logo">
+                <img src="images/EAC-Logo.png" alt="Company 1 logo" class="exp-logo" loading="lazy">
                 <div>
                 <div class="exp-title">Graduate Research Assistant</div>
                 <div class="exp-company"><a href="https://eac.ualr.edu/" target="_blank">Emerging Analytics Center</a></div>
@@ -396,7 +430,7 @@
             </div>
             <div class="exp-content">
             <div class="exp-header">
-                <img src="images/WALTON logo.png" alt="Company 2 logo" class="exp-logo">
+                <img src="images/WALTON logo.png" alt="Company 2 logo" class="exp-logo" loading="lazy">
                 <div>
                 <div class="exp-title">Team Lead @ Quality Management</div>
                 <div class="exp-company"><a href="https://waltondigitech.com/" target="_blank">Walton Digi-Tech Industries Limited</a></div>
@@ -431,7 +465,7 @@
             </div>
             <div class="exp-content">
             <div class="exp-header">
-                <img src="images/WALTON logo.png" alt="Company 3 logo" class="exp-logo">
+                <img src="images/WALTON logo.png" alt="Company 3 logo" class="exp-logo" loading="lazy">
                 <div>
                 <div class="exp-title">Team Lead @ Manufacturing Process Engineering</div>
                 <div class="exp-company"><a href="https://waltondigitech.com/" target="_blank">Walton Digi-Tech Industries Limited</a></div>
@@ -465,7 +499,7 @@
             </div>
             <div class="exp-content">
             <div class="exp-header">
-                <img src="images/Samsung.png" alt="Company 4 logo" class="exp-logo">
+                <img src="images/Samsung.png" alt="Company 4 logo" class="exp-logo" loading="lazy">
                 <div>
                 <div class="exp-title">Production Engineer @ Joint Design Manufacturing (JDM)</div>
                 <div class="exp-company"><a href="https://fairelectronics.com.bd/" target="_blank">Samsung - Fair Electronics Limited</a></div>
@@ -499,7 +533,7 @@
 
 
     <!-- MISC -->
-            <section id="contact">
+            <section id="contact" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <h2>Contact Me</h2>
     <p>Get in touch</p>
 
@@ -573,7 +607,9 @@
     <p>&copy;Asif Bin Karim. All rights reserved.</p>
   </footer>
 
-  <script src="scripts.js"></script>
+  <!-- AOS JavaScript Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+  <script src="scripts.js" defer></script>
 
 </body>
 </html>

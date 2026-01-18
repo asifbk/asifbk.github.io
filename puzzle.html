@@ -383,7 +383,7 @@
     <div class="success-message" id="success-message">
       <h2>🎉 Puzzle Solved!</h2>
       <p>You completed it in <span id="final-time">0:00</span>! 🏆</p>
-      <a href="https://drive.google.com/file/d/12lGvh1psBkezkEesaNnWCDKDHsP069kO/view?usp=sharing" 
+      <a href="CV_Karim.pdf" 
          target="_blank" 
          class="download-btn">
         📄 Download CV Now
@@ -620,6 +620,11 @@
           document.getElementById('final-time').textContent = this.timerDisplay.textContent;
           this.successMessage.classList.add('show');
           this.createConfetti();
+          
+          // Open CV PDF after 2 seconds
+          setTimeout(() => {
+            window.open('CV_Karim.pdf', '_blank');
+          }, 2000);
         }, 500);
       }
 
