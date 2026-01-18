@@ -3,6 +3,19 @@
 let allPublications = [];
 let showingSelected = true;
 
+// Initialize AOS (Animate On Scroll)
+function initializeAOS() {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out-quad',
+      once: true,
+      offset: 100,
+      disable: 'mobile' // Disable on mobile devices for better performance
+    });
+  }
+}
+
 // Dark mode toggle functionality
 function initializeThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
@@ -825,4 +838,10 @@ window.onclick = function(event) {
 document.getElementById('cv-puzzle-link').addEventListener('click', (e) => {
   e.preventDefault();
   window.open('puzzle.html', '_blank'); // Open puzzle in new tab
+});
+
+// Initialize all features on page load
+document.addEventListener('DOMContentLoaded', function() {
+  initializeThemeToggle();
+  initializeAOS();
 });
