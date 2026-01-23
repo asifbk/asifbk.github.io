@@ -383,7 +383,7 @@
     <div class="success-message" id="success-message">
       <h2>🎉 Puzzle Solved!</h2>
       <p>You completed it in <span id="final-time">0:00</span>! 🏆</p>
-      <p style="margin-top: 15px; color: #666; font-size: 14px;">Opening your CV...</p>
+      <p style="margin-top: 15px; color: #666; font-size: 14px;">Opening your CV in a new tab...</p>
     </div>
   </div>
 
@@ -617,14 +617,8 @@
           this.successMessage.classList.add('show');
           this.createConfetti();
           setTimeout(() => {
-            // Use direct link to avoid popup blockers, especially on mobile
-            const link = document.createElement('a');
-            link.href = 'CV_Karim.pdf';
-            link.download = 'CV_Karim.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Open CV for viewing (user can download from the viewer)
+            window.open('CV_Karim.pdf', '_blank', 'noopener');
           }, 2000);
         }, 500);
       }

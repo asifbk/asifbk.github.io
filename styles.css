@@ -163,19 +163,27 @@ body {
   background-color: var(--bg-color);
   font-weight: 300;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 main {
-     padding: 1.5rem 5vw;
-     width: 100%;
-     box-sizing: border-box;
-   }
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  height: var(--panel-height, auto);
+}
    
-header {
+header.about-hero {
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
-  padding-left: 6rem;
+  padding-left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -308,11 +316,19 @@ nav a:hover,
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   scroll-margin-top: 1rem;
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
   width: 100%;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 1.5rem 5vw;
+  box-sizing: border-box;
+  height: var(--panel-height, auto);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* Stagger animations for sections */
@@ -1168,22 +1184,12 @@ strong {
 /* Slider shell */
 .cert-slider {
   margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  display: block;
 }
 
 /* Left/right arrows */
 .cert-arrow {
-  border: none;
-  background: none;
-  color: var(--accent-color);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 999px;
-  transition: background-color var(--transition-time) ease,
-              color var(--transition-time) ease;
+  display: none;
 }
 
 .cert-arrow:disabled {
@@ -1197,15 +1203,16 @@ strong {
 
 /* Visible window */
 .cert-viewport {
-  overflow: hidden;
-  flex: 1;
+  overflow: visible;
 }
 
 /* Track that moves left-right */
 .cert-track {
   display: flex;
   gap: 1rem;
-  transition: transform 0.4s ease;
+  flex-wrap: wrap;
+  transition: none;
+  transform: none !important;
 }
 
 /* Individual certificate cards */
@@ -1213,8 +1220,8 @@ strong {
 
 .cert-card {
   min-width: 240px;
-  max-width: 280px;
-  flex: 0 0 auto;
+  max-width: 320px;
+  flex: 1 1 260px;
   background-color: #f6f6ff;
   border-radius: 12px;
   padding: 1rem 1rem 1.1rem;

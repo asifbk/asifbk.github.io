@@ -472,6 +472,91 @@ function initializeBackToTop() {
   });
 }
 
+// Horizontal panel navigation for side-by-side layout
+function initializeHorizontalNavigation() {
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const getScrollableContainer = (target) => {
+    let el = target;
+    while (el && el !== main && el !== document.body) {
+      const style = window.getComputedStyle(el);
+      const canScrollY = /(auto|scroll)/.test(style.overflowY);
+      if (canScrollY && el.scrollHeight > el.clientHeight + 1) {
+        return el;
+      }
+      el = el.parentElement;
+    }
+    return null;
+  };
+
+  // Map wheel to horizontal scroll unless the current section can scroll vertically
+  document.addEventListener('wheel', (event) => {
+    if (!main.contains(event.target)) return;
+
+    const container = getScrollableContainer(event.target);
+    if (container) {
+      const atTop = container.scrollTop <= 0;
+      const atBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 1;
+      const scrollingDown = event.deltaY > 0;
+
+      if ((scrollingDown && !atBottom) || (!scrollingDown && !atTop)) {
+        return; // allow vertical scrolling inside the section
+      }
+    }
+
+    if (Math.abs(event.deltaY) >= Math.abs(event.deltaX)) {
+      event.preventDefault();
+      main.scrollLeft += event.deltaY;
+    } else {
+      event.preventDefault();
+      main.scrollLeft += event.deltaX;
+    }
+  }, { passive: false });
+
+  // Smooth scroll to section panels when clicking nav links
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const targetId = hash.slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      main.scrollTo({
+        left: target.offsetLeft,
+        behavior: 'smooth'
+      });
+
+      history.replaceState(null, '', hash);
+    });
+  });
+
+  // If page loads with a hash, snap to that section
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash) {
+    const target = document.getElementById(initialHash);
+    if (target) {
+      main.scrollTo({
+        left: target.offsetLeft,
+        behavior: 'auto'
+      });
+    }
+  }
+}
+
+// Set panel height to keep horizontal panels scrollable vertically
+function updatePanelHeight() {
+  const nav = document.querySelector('nav');
+  const navHeight = nav ? nav.offsetHeight : 0;
+  const available = window.innerHeight - navHeight;
+  const safeHeight = Math.max(360, available);
+  document.documentElement.style.setProperty('--panel-height', `${safeHeight}px`);
+}
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize theme toggle
@@ -494,6 +579,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize back to top button
   initializeBackToTop();
+
+  // Initialize horizontal navigation for side-by-side layout
+  initializeHorizontalNavigation();
+
+  // Compute panel height for vertical scroll inside sections
+  updatePanelHeight();
+  window.addEventListener('resize', updatePanelHeight);
 
   // Education details toggles with animation
   const eduToggles = document.querySelectorAll('.edu-toggle');
@@ -612,9 +704,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const certNext = document.getElementById('certifications-next');
   if (certTrack && certPrev && certNext) {
     // cert cards are already in DOM; use maxPerPage 4 (will clamp by viewport)
-    const certSlider = new Slider({ track: certTrack, prevBtn: certPrev, nextBtn: certNext, maxPerPage: 4, moveByPage: false });
-    // Ensure items are refreshed (in case images affect sizing)
-    certSlider.refreshItems();
+    // Slider disabled: certifications now wrap in a grid
   }
 });
 
