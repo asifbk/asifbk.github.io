@@ -214,91 +214,98 @@ function initializeScrollAnimations() {
 function initiate3DCube() {
   const container = document.getElementById('cube-container');
   if (!container) return;
+  if (typeof THREE === 'undefined') return;
 
-  const scene = new THREE.Scene();
-  const width = 120;
-  const height = 120;
-  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  
-  renderer.setSize(width, height);
-  renderer.setClearColor(0x000000, 0);
-  container.appendChild(renderer.domElement);
-
-  camera.position.z = 2;
-
-  // Create rotating cube with gradient colors
-  const geometry = new THREE.BoxGeometry(1, 1, 1);
-  
-  const materials = [
-    new THREE.MeshPhongMaterial({ color: 0x4a74b9 }), // Blue
-    new THREE.MeshPhongMaterial({ color: 0x3a5c9e }), // Dark Blue
-    new THREE.MeshPhongMaterial({ color: 0x00ccbb }), // Teal
-    new THREE.MeshPhongMaterial({ color: 0x5865f2 }), // Purple
-    new THREE.MeshPhongMaterial({ color: 0xa6ce39 }), // Green
-    new THREE.MeshPhongMaterial({ color: 0x718096 })  // Gray
-  ];
-  
-  const cube = new THREE.Mesh(geometry, materials);
-  scene.add(cube);
-
-  // Add lighting
-  const light1 = new THREE.DirectionalLight(0xffffff, 0.8);
-  light1.position.set(5, 5, 5);
-  scene.add(light1);
-
-  const light2 = new THREE.DirectionalLight(0xffffff, 0.4);
-  light2.position.set(-5, -5, 5);
-  scene.add(light2);
-
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambientLight);
-
-  // Animation loop
-  function animate() {
-    requestAnimationFrame(animate);
+  try {
+    const scene = new THREE.Scene();
+    const width = 120;
+    const height = 120;
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     
-    cube.rotation.x += 0.005;
-    cube.rotation.y += 0.008;
-    cube.rotation.z += 0.003;
-    
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  // Handle window resize
-  window.addEventListener('resize', () => {
     renderer.setSize(width, height);
-  });
+    renderer.setClearColor(0x000000, 0);
+    container.appendChild(renderer.domElement);
+
+    camera.position.z = 2;
+
+    // Create rotating cube with gradient colors
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    
+    const materials = [
+      new THREE.MeshPhongMaterial({ color: 0x4a74b9 }), // Blue
+      new THREE.MeshPhongMaterial({ color: 0x3a5c9e }), // Dark Blue
+      new THREE.MeshPhongMaterial({ color: 0x00ccbb }), // Teal
+      new THREE.MeshPhongMaterial({ color: 0x5865f2 }), // Purple
+      new THREE.MeshPhongMaterial({ color: 0xa6ce39 }), // Green
+      new THREE.MeshPhongMaterial({ color: 0x718096 })  // Gray
+    ];
+    
+    const cube = new THREE.Mesh(geometry, materials);
+    scene.add(cube);
+
+    // Add lighting
+    const light1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    light1.position.set(5, 5, 5);
+    scene.add(light1);
+
+    const light2 = new THREE.DirectionalLight(0xffffff, 0.4);
+    light2.position.set(-5, -5, 5);
+    scene.add(light2);
+
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      cube.rotation.x += 0.005;
+      cube.rotation.y += 0.008;
+      cube.rotation.z += 0.003;
+      
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      renderer.setSize(width, height);
+    });
+  } catch (error) {
+    container.style.display = 'none';
+  }
 }
 
 // Create 3D VR Headset model for About section
 function initiate3DRobot() {
   const container = document.getElementById('robot-container');
   if (!container) return;
+  if (typeof THREE === 'undefined') return;
 
-  const scene = new THREE.Scene();
-  const width = container.clientWidth;
-  const height = container.clientHeight;
-  
-  const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  
-  renderer.setSize(width, height);
-  renderer.setClearColor(0x000000, 0);
-  container.appendChild(renderer.domElement);
+  try {
+    const scene = new THREE.Scene();
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    
+    const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
+    renderer.setSize(width, height);
+    renderer.setClearColor(0x000000, 0);
+    container.appendChild(renderer.domElement);
 
-  camera.position.set(0, 0, 5);
-  camera.lookAt(0, 0, 0);
+    camera.position.set(0, 0, 5);
+    camera.lookAt(0, 0, 0);
 
-  // Create VR headset group
-  const vrHeadset = new THREE.Group();
+    // Create VR headset group
+    const vrHeadset = new THREE.Group();
 
-  // Materials
-  const headsetMaterial = new THREE.MeshPhongMaterial({ 
-    color: 0x2d2d44, 
-    shininess: 80 
-  });
+    // Materials
+    const headsetMaterial = new THREE.MeshPhongMaterial({ 
+      color: 0x2d2d44, 
+      shininess: 80 
+    });
   const lensMaterial = new THREE.MeshPhongMaterial({ 
     color: 0x1a1a2e, 
     emissive: 0x4a74b9, 
@@ -449,6 +456,9 @@ function initiate3DRobot() {
     camera.updateProjectionMatrix();
     renderer.setSize(w, h);
   });
+  } catch (error) {
+    container.style.display = 'none';
+  }
 }
 
 // Back to Top Button functionality
