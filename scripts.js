@@ -476,6 +476,7 @@ function initializeBackToTop() {
 function initializeHorizontalNavigation() {
   const main = document.querySelector('main');
   if (!main) return;
+  if (window.innerWidth <= 900) return;
 
   const getScrollableContainer = (target) => {
     let el = target;

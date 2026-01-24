@@ -126,6 +126,29 @@ nav ul {
   flex: 1;
 }
 
+@media (max-width: 768px) {
+  nav {
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    gap: 0.5rem 0.8rem;
+  }
+
+  nav a {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  #theme-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
+
 /* Theme toggle button */
 #theme-toggle {
   background: none;
@@ -163,7 +186,7 @@ body {
   background-color: var(--bg-color);
   font-weight: 300;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 main {
@@ -221,19 +244,70 @@ h1 {
   font-weight: 500;
   margin-bottom: 0.25rem;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  flex-wrap: wrap;
 }
 
 h2 {
   font-size: clamp(1.8rem, 2.2vw, 2.6rem);
-  font-weight: 500;
-  margin: 1.75rem 0 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
-  letter-spacing: -0.01em;
-  line-height: 1.3;
-  display: flex;
   align-items: center;
+
+@media (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
+
+  nav {
+    padding: 0.6rem 0.8rem;
+    gap: 0.6rem;
+  }
+
+  nav ul {
+    justify-content: flex-start;
+    gap: 0.5rem 0.9rem;
+  }
+
+  nav a {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  #theme-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  main {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-snap-type: none;
+    height: auto;
+  }
+
+  section {
+    flex: 1 1 auto;
+    height: auto;
+    overflow: visible;
+    scroll-snap-align: unset;
+    scroll-snap-stop: normal;
+  }
+
+  header.about-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #about .about-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  #robot-container {
+    width: 100%;
+    height: 280px;
+  }
+}
   gap: 0.7em;
   transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -330,6 +404,7 @@ section {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+
 
 /* Stagger animations for sections */
 section:nth-child(1) { animation-delay: 0s; }
@@ -1329,21 +1404,6 @@ strong {
   height: 400px;
 }
 
-/* Responsive: stack on mobile */
-@media (max-width: 768px) {
-  #about .about-content {
-    grid-template-columns: 1fr;
-  }
-  
-  #robot-container {
-    width: 100%;
-    height: 300px;
-  }
-  
-  .about-text {
-    min-height: auto;
-  }
-}
 .skills-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1469,162 +1529,3 @@ strong {
   color: #333;
 }
 
-/* ============================================
-   MOBILE-FIRST RESPONSIVE PATCH
-   Clean minimal adjustments for mobile/tablet
-   ============================================ */
-
-@media (max-width: 768px) {
-  /* Navigation adjustments */
-  nav {
-    padding: 0.75rem 1rem;
-    gap: 0.5rem;
-  }
-
-  nav ul {
-    gap: 0.5rem;
-  }
-
-  nav a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.6rem;
-  }
-
-  nav a i {
-    margin-right: 0.2rem;
-  }
-
-  /* Main content padding */
-  main {
-    padding: 1.5rem 1rem;
-  }
-
-  /* Header adjustments */
-  header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  /* About section grid */
-  #about .about-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .about-text {
-    min-height: auto;
-  }
-
-  #robot-container {
-    max-width: 300px;
-  }
-
-  /* Education and experience spacing */
-  .edu-item {
-    margin-bottom: 1.5rem;
-  }
-
-  .edu-logo {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-  }
-
-  .edu-school {
-    font-size: 1.2rem;
-  }
-
-  .edu-degree {
-    font-size: 1rem;
-  }
-
-  .edu-meta {
-    font-size: 0.85rem;
-  }
-
-  .exp-item {
-    margin-bottom: 1.5rem;
-  }
-
-  .exp-logo {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-  }
-
-  .exp-title {
-    font-size: 1.1rem;
-  }
-
-  .exp-company {
-    font-size: 0.95rem;
-  }
-
-  .exp-meta {
-    font-size: 0.8rem;
-  }
-
-  /* Publication cards */
-  .publication-item {
-    gap: 1rem;
-  }
-
-  .pub-thumbnail {
-    width: 300px;
-    height: 220px;
-  }
-
-  /* Contact grid */
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .contact-panel {
-    padding: 1rem;
-  }
-
-  /* Skill cards */
-  .skills-container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-  }
-
-  /* Certificate slider */
-  .cert-card {
-    max-width: 220px;
-    padding: 0.8rem;
-  }
-
-  .cert-image-wrap {
-    height: 150px;
-  }
-
-  /* Font size reductions */
-  body {
-    font-size: 0.95rem;
-  }
-
-  .pub-authors {
-    font-size: 0.8rem;
-  }
-
-  .edu-meta,
-  .exp-meta {
-    font-size: 0.85rem;
-  }
-
-  /* Footer */
-  footer {
-    padding: 1.5rem 1rem;
-    font-size: 0.9rem;
-  }
-}
